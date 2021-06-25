@@ -19,12 +19,12 @@ int interpret(char *src, char *filename) {
                 if (stat & FUNC_NAME_DEFINED) {
                     where(filename);
                     fprintf(stderr, "Invalid function name\n");
-                    return 1;
+                    exit(1);
                 }
                 if (f0 & (1 << (*ptr - '0'))) {
                     where(filename);
                     fprintf(stderr, "Invalid function %c redeclaration\n", *ptr);
-                    return 1;
+                    exit(1);
                 }
                 f0 |= 1 << (*ptr - '0');
                 name = *ptr;
@@ -37,12 +37,12 @@ int interpret(char *src, char *filename) {
                 if (stat & FUNC_NAME_DEFINED) {
                     where(filename);
                     fprintf(stderr, "Invalid function name\n");
-                    return 1;
+                    exit(1);
                 }
                 if (fA & (1 << (*ptr - 'A'))) {
                     where(filename);
                     fprintf(stderr, "Invalid function %c redeclaration\n", *ptr);
-                    return 1;
+                    exit(1);
                 }
                 fA |= 1 << (*ptr - 'A');
                 name = *ptr;
@@ -55,12 +55,12 @@ int interpret(char *src, char *filename) {
                 if (stat & FUNC_NAME_DEFINED) {
                     where(filename);
                     fprintf(stderr, "Invalid function name\n");
-                    return 1;
+                    exit(1);
                 }
                 if (fa & (1 << (*ptr - 'a'))) {
                     where(filename);
                     fprintf(stderr, "Invalid function %c redeclaration\n", *ptr);
-                    return 1;
+                    exit(1);
                 }
                 fa |= 1 << (*ptr - 'a');
                 name = *ptr;
@@ -74,12 +74,12 @@ int interpret(char *src, char *filename) {
             if (stat & IN_FUNC) {
                 where(filename);
                 fprintf(stderr, "Invalid function declaration inside of a function\n");
-                return 1;
+                exit(1);
             }
             if (!(stat & FUNC_NAME_DEFINED)) {
                 where(filename);
                 fprintf(stderr, "Missing function name\n");
-                return 1;
+                exit(1);
             }
             stat |= IN_FUNC;
             printf("void f_%c(void){", name);
@@ -87,12 +87,12 @@ int interpret(char *src, char *filename) {
             if (!(stat & IN_FUNC)) {
                 where(filename);
                 fprintf(stderr, "Unbalanced brace }\n");
-                return 1;
+                exit(1);
             }
             if (depth != 0) {
                 where(filename);
                 fprintf(stderr, "Unbalanced parentheses ()\n");
-                return 1;
+                exit(1);
             }
             depth = 0;
             stat = 0;
@@ -103,14 +103,14 @@ int interpret(char *src, char *filename) {
             if (!(stat & IN_FUNC)) {
                 where(filename);
                 fprintf(stderr, "Invalid expression outside of a function\n");
-                return 1;
+                exit(1);
             }
             printf("ptr++;");
         } else if (*ptr == '<') {
             if (!(stat & IN_FUNC)) {
                 where(filename);
                 fprintf(stderr, "Invalid expression outside of a function\n");
-                return 1;
+                exit(1);
             }
             printf("ptr--;");
         }
@@ -119,14 +119,14 @@ int interpret(char *src, char *filename) {
             if (!(stat & IN_FUNC)) {
                 where(filename);
                 fprintf(stderr, "Invalid expression outside of a function\n");
-                return 1;
+                exit(1);
             }
             printf("*ptr==255?*ptr=0:(*ptr)++;");
         } else if (*ptr == '-') {
             if (!(stat & IN_FUNC)) {
                 where(filename);
                 fprintf(stderr, "Invalid expression outside of a function\n");
-                return 1;
+                exit(1);
             }
             printf("*ptr==0?*ptr=255:(*ptr)--;");
         }
@@ -135,14 +135,14 @@ int interpret(char *src, char *filename) {
             if (!(stat & IN_FUNC)) {
                 where(filename);
                 fprintf(stderr, "Invalid expression outside of a function\n");
-                return 1;
+                exit(1);
             }
             printf("*ptr=getchar();");
         } else if (*ptr == '.') {
             if (!(stat & IN_FUNC)) {
                 where(filename);
                 fprintf(stderr, "Invalid expression outside of a function\n");
-                return 1;
+                exit(1);
             }
             printf("putchar(*ptr);");
         }
@@ -151,7 +151,7 @@ int interpret(char *src, char *filename) {
             if (!(stat & IN_FUNC)) {
                 where(filename);
                 fprintf(stderr, "Invalid expression outside of a function\n");
-                return 1;
+                exit(1);
             }
             ++depth;
             printf("if(*ptr){");
@@ -159,12 +159,12 @@ int interpret(char *src, char *filename) {
             if (!(stat & IN_FUNC)) {
                 where(filename);
                 fprintf(stderr, "Invalid expression outside of a function\n");
-                return 1;
+                exit(1);
             }
             if (--depth < 0) {
                 where(filename);
                 fprintf(stderr, "Unbalanced parenthesis )\n");
-                return 1;
+                exit(1);
             }
             printf("}");
         }
@@ -172,7 +172,7 @@ int interpret(char *src, char *filename) {
         else if (!strchr(" \r\n\t\f", *ptr)) {
             where(filename);
             fprintf(stderr, "Invalid charactor 0x%2x\n", *ptr);
-            return 1;
+            exit(1);
         }
 
         if (*ptr == '\n') {
@@ -186,7 +186,7 @@ int interpret(char *src, char *filename) {
     if (!(f0 & 1)) {
         where(filename);
         fprintf(stderr, "Missing function 0\n");
-        return 1;
+        exit(1);
     }
 }
 
@@ -197,29 +197,29 @@ int main(int argc, char **argv) {
 
     if (argc == 1) {
         fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
-        return 1;
+        exit(1);
     }
 
     if (argc > 2) {
         fprintf(stderr, "\e[91mError:\e[0m Too many arguments\n");
-        return 1;
+        exit(1);
     }
 
     fsrc = fopen(argv[1], "r");
 
     if (!fsrc) {
         fprintf(stderr, "\e[91mError:\e[0m Cannot open file %s\n", argv[1]);
-        return 1;
+        exit(1);
     }
 
     for (ptr = src, end = src + INNER_BUFSIZE; fgets(buf, INNER_BUFSIZE, fsrc); ptr += n - 1) {
         n = snprintf(ptr, end - ptr, "%s", buf);
         if (n < 0) {
             fprintf(stderr, "\e[91mError:\e[0m Error while loading input file %s\n", argv[1]);
-            return 1;
+            exit(1);
         } else if (n > end - ptr) {
             fprintf(stderr, "\e[91mError:\e[0m Too large input file %s\n", argv[1]);
-            return 1;
+            exit(1);
         }
     }
 
