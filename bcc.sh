@@ -13,7 +13,7 @@ else
 fi
 
 if [ ! -e $1 ]; then
-    printf "\e[31mError:\e[0m cc: No such file or directory\n"
+    printf "\e[31mError:\e[0m $1: No such file or directory\n"
     exit 1
 fi
 
