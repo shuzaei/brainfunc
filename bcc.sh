@@ -16,7 +16,7 @@ logfile=`mktemp "/tmp/tmp.XXXXXX.log"`
 intexec=`mktemp "/tmp/tmp.XXXXXX.out"`
 cfile=`mktemp "/tmp/tmp.XXXXXX.c"`
 
-cc ../brainfunc/interpreter.c -o $intexec >> $logfile 2>&1
+cc /usr/local/brainfunc/interpreter.c -o $intexec >> $logfile 2>&1
 if [ $? -gt 0 ]; then
     rm $intexec >> $logfile
     printf "\e[31mError:\e[0m cc: interpreter.c: Compile error\n"
