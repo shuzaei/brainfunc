@@ -17,33 +17,32 @@ if [ ! -e $1 ]; then
     exit 1
 fi
 
-logfile=`mktemp "/tmp/tmp.XXXXXX.log"`
 intexec=`mktemp "/tmp/tmp.XXXXXX.out"`
 cfile=`mktemp "/tmp/tmp.XXXXXX.c"`
 
-cc /usr/local/brainfunc/interpreter.c -o $intexec >> $logfile 2>&1
+cc /usr/local/brainfunc/interpreter.c -o $intexec
 if [ $? -gt 0 ]; then
-    rm $intexec >> $logfile
+    rm $intexec
     printf "\e[31mError:\e[0m cc: interpreter.c: Compile error\n"
     exit 1
 fi
 
-$intexec $1 > $cfile 2>>$logfile
+$intexec $1 > $cfile
 if [ $? -gt 0 ]; then
-    rm $intexec >> $logfile
-    rm $cfile >> $logfile
+    rm $intexec
+    rm $cfile
     printf "\e[31mError:\e[0m $intexec: Interpret error\n"
     exit 1
 fi
 
-cc $cfile -o $execfile 2>>$logfile
+cc $cfile -o $execfile
 if [ $? -gt 0 ]; then
-    rm $intexec >> $logfile
-    rm $cfile >> $logfile
-    rm $execfile >> $logfile
+    rm $intexec
+    rm $cfile
+    rm $execfile
     printf "\e[31mError:\e[0m cc: $cfile: Compile error\n"
     exit 1
 fi
 
-rm $intexec >> $logfile
-rm $cfile >> $logfile
+rm $intexec
+rm $cfile
