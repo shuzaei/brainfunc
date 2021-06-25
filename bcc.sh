@@ -22,7 +22,6 @@ cfile=`mktemp "/tmp/tmp.XXXXXX.c"`
 
 cc /usr/local/brainfunc/interpreter.c -o $intexec
 if [ $? -gt 0 ]; then
-    rm $intexec
     exit 1
 fi
 
