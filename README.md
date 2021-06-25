@@ -32,18 +32,17 @@ bcc <filename> [execname]
 # Language specification
 
 - Recommended extension: `.b`, `.bc`, `.bf`
-- Environment: `static char buf[1000000],*ptr=buf;`
-- Implementation:
+- Environment implementation: `static char buf[1000000],*ptr=buf;int main(void){f_0();return 0;}`
+- Code implementation:
 
 | code            | C implementation                   |
 | :-------------- | :--------------------------------- |
-| `0{}`           | `int main(void){return 0;}`        |
-| `[1-9A-Za-z]{}` | `void [1-9A-Za-z](void){}`         |
+| `[0-9A-Za-z]{}` | `void f_[1-9A-Za-z](void){}`         |
 | `>` `<`         | `ptr++;` `ptr--;`                  |
 | `+` `-`         | `(*ptr)++;` `(*ptr)--;`            |
 | `,` `.`         | `*ptr=getchar();` `putchar(*ptr);` |
 | `()`            | `if(*ptr){}`                       |
-| `[1-9A-Za-z]`   | `[1-9A-Za-z]();`                   |
+| `[0-9A-Za-z]`   | `f_[1-9A-Za-z]();`                   |
 
 - Notice: input `EOF` is `-1`.
 
