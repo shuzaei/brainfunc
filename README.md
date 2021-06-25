@@ -46,7 +46,7 @@ bcc <filename> [execname]
 
 - Notice: input `EOF` is `-1`.
 
-# Sample code
+# Sample codes
 - Hello World
 
 ```brainfuck
