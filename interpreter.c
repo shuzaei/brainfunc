@@ -213,7 +213,7 @@ int main(int argc, char **argv) {
         exit(1);
     }
 
-    for (ptr = src, end = src + INNER_BUFSIZE; fgets(buf, INNER_BUFSIZE, fsrc); ptr += n - 1) {
+    for (ptr = src, end = src + INNER_BUFSIZE; fgets(buf, INNER_BUFSIZE, fsrc); ptr += n) {
         n = snprintf(ptr, end - ptr, "%s", buf);
         if (n < 0) {
             fprintf(stderr, "\e[91mError:\e[0m Error while loading input file %s\n", argv[1]);
