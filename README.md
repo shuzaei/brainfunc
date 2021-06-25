@@ -4,7 +4,7 @@ A functional programming language like brainf\*ck.
 # BCC
 A compiler of Brainfunc.
 
-# Installing BCC to /usr/local/bin/
+# Installing BCC
 1. Clone [this](https://github.com/shuzaei/brainfunc/) repository.
 2. Execute the commands below.
 
@@ -14,7 +14,7 @@ chmod +x install.sh && ./install.sh
 
 3. (Optional) Delete the cloned files.
 
-# Uninstalling BCC from /usr/bin/
+# Uninstalling BCC
 1. Clone [this](https://github.com/shuzaei/brainfunc/) repository.
 2. Execute the commands below.
 
