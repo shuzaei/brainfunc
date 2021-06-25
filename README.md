@@ -46,6 +46,8 @@ bcc <filename> [execname]
 | `[1-9A-Za-z]`   | `[1-9A-Za-z]();`                   |
 
 # Sample code
+- Hello World
+
 ```brainfuck
 h{++++++++++++++++}
 H{hhhh++++++++}
@@ -60,4 +62,11 @@ d{hhhhhh++++}
 E{hh+}
 N{++++++++++}
 0{H.>e.>l.>l.>o.>C.>S.>W.>o.>r.>l.>d.>E.>N.}
+```
+
+- echo
+
+```brainfuck
+e{,+(-.e)}
+0{e}
 ```
