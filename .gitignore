@@ -1,5 +1,4 @@
 .vscode/*
 .clang-format
 test/*
-tmp*
 a.out
