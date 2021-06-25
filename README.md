@@ -21,8 +21,8 @@ bcc <filename> [execname]
 
 # Language specification
 
-- Extention: .bc
-- Environment: `int buf[1000000],*ptr=buf;`
+- Extention: .b, .bc, .bf
+- Environment: `int buf[1000000], *ptr=buf;`
 - Implementation:
 
 | code            | C implementation                   |
@@ -35,7 +35,7 @@ bcc <filename> [execname]
 | `()`            | `if(*ptr){}`                       |
 | `[1-9A-Za-z]`   | `[1-9A-Za-z]();`                   |
 
-- Notice: `255+1=0,0-1=255`
+- Notice: `255+1=0`, `0-1=255`
 
 # Sample code
 ```brainfuck
