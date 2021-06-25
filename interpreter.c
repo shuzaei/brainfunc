@@ -121,14 +121,14 @@ int interpret(char *src, char *filename) {
                 fprintf(stderr, "Invalid expression outside of a function\n");
                 return 1;
             }
-            printf("*ptr==255?0:(*ptr)++;");
+            printf("*ptr==255?*ptr=0:(*ptr)++;");
         } else if (*ptr == '-') {
             if (!(stat & IN_FUNC)) {
                 where(filename);
                 fprintf(stderr, "Invalid expression outside of a function\n");
                 return 1;
             }
-            printf("*ptr==0?255:(*ptr)--;");
+            printf("*ptr==0?*ptr=255:(*ptr)--;");
         }
 
         else if (*ptr == ',') {
@@ -212,7 +212,7 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    for (ptr = src, end = src + INNER_BUFSIZE; fgets(buf, INNER_BUFSIZE, fsrc); ptr += n) {
+    for (ptr = src, end = src + INNER_BUFSIZE; fgets(buf, INNER_BUFSIZE, fsrc); ptr += n - 1) {
         n = snprintf(ptr, end - ptr, "%s", buf);
         if (n < 0) {
             fprintf(stderr, "\e[91mError:\e[0m Error while loading input file %s\n", argv[1]);
