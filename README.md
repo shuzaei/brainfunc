@@ -1,6 +1,24 @@
 # Brainfunc
 A functional programming language like brainf\*ck.
 
+# BCC
+A compiler of Brainfunc.
+
+# Installing BCC to /usr/local/bin/
+```sh
+chmod +x bcc.sh && sudo cp bcc.sh /usr/local/bin/bcc && sudo cp interpreter.c /usr/local/bcc/interpreter.c
+```
+
+# Uninstalling BCC from /usr/bin/
+```sh
+sudo rm /usr/local/bin/bcc && sudo rm /usr/local/bcc/interpreter.c
+```
+
+# Using BCC
+```sh
+bcc <filename> [execname]
+```
+
 # Language specification
 
 | code            | C implementation                 |
