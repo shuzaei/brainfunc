@@ -31,7 +31,7 @@ bcc <filename> [execname]
 
 # Language specification
 
-- Extension: `.b`, `.bc`, `.bf`
+- Recommended extension: `.b`, `.bc`, `.bf`
 - Environment: `static int buf[1000000], *ptr=buf;`
 - Implementation:
 
