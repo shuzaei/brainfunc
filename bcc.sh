@@ -23,7 +23,6 @@ cfile=`mktemp "/tmp/tmp.XXXXXX.c"`
 cc /usr/local/brainfunc/interpreter.c -o $intexec
 if [ $? -gt 0 ]; then
     rm $intexec
-    printf "\e[31mError:\e[0m cc: interpreter.c: Compile error\n"
     exit 1
 fi
 
@@ -31,7 +30,6 @@ $intexec $1 > $cfile
 if [ $? -gt 0 ]; then
     rm $intexec
     rm $cfile
-    printf "\e[31mError:\e[0m $intexec: Interpret error\n"
     exit 1
 fi
 
@@ -40,7 +38,6 @@ if [ $? -gt 0 ]; then
     rm $intexec
     rm $cfile
     rm $execfile
-    printf "\e[31mError:\e[0m cc: $cfile: Compile error\n"
     exit 1
 fi
 
