@@ -21,7 +21,7 @@ bcc <filename> [execname]
 
 # Language specification
 
-- Extention: .b, .bc, .bf
+- Extention: `.b`, `.bc`, `.bf`
 - Environment: `int buf[1000000], *ptr=buf;`
 - Implementation:
 
