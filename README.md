@@ -32,12 +32,12 @@ bcc <filename> [execname]
 # Language specification
 
 - Extention: `.b`, `.bc`, `.bf`
-- Environment: `int buf[1000000], *ptr=buf;`
+- Environment: `static int buf[1000000], *ptr=buf;`
 - Implementation:
 
 | code            | C implementation                   |
 | :-------------- | :--------------------------------- |
-| `0{}`           | `static int main(void){return 0;}` |
+| `0{}`           | `int main(void){return 0;}`        |
 | `[1-9A-Za-z]{}` | `void [1-9A-Za-z](void){}`         |
 | `>` `<`         | `ptr++;` `ptr--;`                  |
 | `+` `-`         | `(*ptr)++;` `(*ptr)--;`            |
