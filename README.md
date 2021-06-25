@@ -25,15 +25,15 @@ bcc <filename> [execname]
 - Environment: `int buf[1000000],*ptr=buf;`
 - Implementation:
 
-| code            | C implementation                 |
-| :-------------- | :------------------------------- |
-| `0{}`           | `int main(void){return 0;}`      |
-| `[1-9A-Za-z]{}` | `void [1-9A-Za-z](void){}`       |
-| `>` `<`         | `ptr++` `ptr--`                  |
-| `+` `-`         | `(*ptr)++` `(*ptr)--`            |
-| `,` `.`         | `*ptr=getchar()` `putchar(*ptr)` |
-| `()`            | `if(*ptr){}`                     |
-| `[1-9A-Za-z]`   | `[1-9A-Za-z]();`                 |
+| code            | C implementation                   |
+| :-------------- | :--------------------------------- |
+| `0{}`           | `int main(void){return 0;}`        |
+| `[1-9A-Za-z]{}` | `void [1-9A-Za-z](void){}`         |
+| `>` `<`         | `ptr++;` `ptr--;`                  |
+| `+` `-`         | `(*ptr)++;` `(*ptr)--;`            |
+| `,` `.`         | `*ptr=getchar();` `putchar(*ptr);` |
+| `()`            | `if(*ptr){}`                       |
+| `[1-9A-Za-z]`   | `[1-9A-Za-z]();`                   |
 
 - Notice: `255+1=0,0-1=255`
 
