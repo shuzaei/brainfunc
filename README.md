@@ -37,7 +37,7 @@ bcc <filename> [execname]
 
 | code            | C implementation                   |
 | :-------------- | :--------------------------------- |
-| `0{}`           | `int main(void){return 0;}`        |
+| `0{}`           | `static int main(void){return 0;}` |
 | `[1-9A-Za-z]{}` | `void [1-9A-Za-z](void){}`         |
 | `>` `<`         | `ptr++;` `ptr--;`                  |
 | `+` `-`         | `(*ptr)++;` `(*ptr)--;`            |
