@@ -33,7 +33,7 @@ bcc <filename> [execname]
 | `+` `-`         | `(*ptr)++` `(*ptr)--`            |
 | `,` `.`         | `*ptr=getchar()` `putchar(*ptr)` |
 | `()`            | `if(*ptr){}`                     |
-| `[1-9A-Za-z]`   | `[1-9A-Za-z]()`                  |
+| `[1-9A-Za-z]`   | `[1-9A-Za-z]();`                 |
 
 - Notice: `255+1=0,0-1=255`
 
