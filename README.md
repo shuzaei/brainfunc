@@ -11,7 +11,7 @@ chmod +x bcc.sh && sudo cp bcc.sh /usr/local/bin/bcc && sudo mkdir /usr/local/br
 
 # Uninstalling BCC from /usr/bin/
 ```sh
-sudo rm /usr/local/bin/bcc && sudo rm /usr/local/brainfunc/interpreter.c
+sudo rm /usr/local/bin/bcc && sudo rm /usr/local/brainfunc/interpreter.c && sudo rmdir /usr/local/brainfunc/
 ```
 
 # Using BCC
