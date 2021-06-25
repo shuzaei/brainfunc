@@ -64,7 +64,7 @@ N{++++++++++}
 0{H.>e.>l.>l.>o.>C.>S.>W.>o.>r.>l.>d.>E.>N.}
 ```
 
-- echo
+- Echo
 
 ```brainfuck
 e{,+(-.e)}
