@@ -1,4 +1,5 @@
 # Brainfunc
+A functional programming language like brainf*ck.
 
 # Language specification
 
