@@ -12,12 +12,10 @@ else
     exit 1
 fi
 
-if [ ! -d "tmp/" ]; then
-    mkdir "tmp/"
-fi
-logfile=`mktemp "tmp/tmp.XXXXXX.log"`
+logfile=`mktemp "/tmp/tmp.XXXXXX.log"`
+intexec=`mktemp "/tmp/tmp.XXXXXX.out"`
+cfile=`mktemp "/tmp/tmp.XXXXXX.c"`
 
-intexec=`mktemp "tmp/tmp.XXXXXX.out"`
 cc interpreter.c -o $intexec >> $logfile 2>&1
 if [ $? -gt 0 ]; then
     rm $intexec >> $logfile
@@ -25,8 +23,7 @@ if [ $? -gt 0 ]; then
     exit 1
 fi
 
-cfile=`mktemp "tmp/tmp.XXXXXX.c"`
-./$intexec $1 > $cfile 2>>$logfile
+$intexec $1 > $cfile 2>>$logfile
 if [ $? -gt 0 ]; then
     rm $intexec >> $logfile
     rm $cfile >> $logfile
