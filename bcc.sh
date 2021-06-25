@@ -12,6 +12,11 @@ else
     exit 1
 fi
 
+if [ ! -e $1 ]; then
+    printf "\e[31mError:\e[0m cc: No such file or directory\n"
+    exit 1
+fi
+
 logfile=`mktemp "/tmp/tmp.XXXXXX.log"`
 intexec=`mktemp "/tmp/tmp.XXXXXX.out"`
 cfile=`mktemp "/tmp/tmp.XXXXXX.c"`
