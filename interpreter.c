@@ -122,14 +122,14 @@ int interpret(char *src, char *filename) {
                 fprintf(stderr, "Invalid expression outside of a function\n");
                 exit(1);
             }
-            printf("*ptr==255?*ptr=0:(*ptr)++;");
+            printf("(*ptr)++;");
         } else if (*ptr == '-') {
             if (!(stat & IN_FUNC)) {
                 where(filename);
                 fprintf(stderr, "Invalid expression outside of a function\n");
                 exit(1);
             }
-            printf("*ptr==0?*ptr=255:(*ptr)--;");
+            printf("(*ptr)--;");
         }
 
         else if (*ptr == ',') {
@@ -189,6 +189,11 @@ int interpret(char *src, char *filename) {
         fprintf(stderr, "Missing function 0\n");
         exit(1);
     }
+    if (stat) {
+        where(filename);
+        fprintf(stderr, "Extra expression\n");
+        exit(1);
+    }
 }
 
 int main(int argc, char **argv) {
@@ -224,7 +229,7 @@ int main(int argc, char **argv) {
         }
     }
 
-    printf("#include <stdio.h>\n#define BUFSIZE %d\nint buf[BUFSIZE];int* ptr = buf;"
+    printf("#include <stdio.h>\n#define BUFSIZE %d\nchar buf[BUFSIZE],*ptr=buf;"
            "void f_0(void);void f_1(void);void f_2(void);void f_3(void);void f_4(void);"
            "void f_5(void);void f_6(void);void f_7(void);void f_8(void);void f_9(void);"
            "void f_A(void);void f_B(void);void f_C(void);void f_D(void);void f_E(void);"
