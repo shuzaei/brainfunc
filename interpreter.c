@@ -24,7 +24,7 @@ int interpret(char *src, char *filename) {
                 }
                 if (f0 & (1 << (*ptr - '0'))) {
                     where(filename);
-                    fprintf(stderr, "Invalid function %c redeclaration\n", *ptr);
+                    fprintf(stderr, "Invalid redeclaration of function \'%c\'\n", *ptr);
                     exit(1);
                 }
                 f0 |= 1 << (*ptr - '0');
@@ -42,7 +42,7 @@ int interpret(char *src, char *filename) {
                 }
                 if (fA & (1 << (*ptr - 'A'))) {
                     where(filename);
-                    fprintf(stderr, "Invalid function %c redeclaration\n", *ptr);
+                    fprintf(stderr, "Invalid redeclaration of function \'%c\'\n", *ptr);
                     exit(1);
                 }
                 fA |= 1 << (*ptr - 'A');
@@ -60,7 +60,7 @@ int interpret(char *src, char *filename) {
                 }
                 if (fa & (1 << (*ptr - 'a'))) {
                     where(filename);
-                    fprintf(stderr, "Invalid function %c redeclaration\n", *ptr);
+                    fprintf(stderr, "Invalid redeclaration of function \'%c\'\n", *ptr);
                     exit(1);
                 }
                 fa |= 1 << (*ptr - 'a');
@@ -197,7 +197,7 @@ int main(int argc, char **argv) {
     char src[INNER_BUFSIZE], buf[INNER_BUFSIZE], *ptr, *end;
 
     if (argc == 1) {
-        fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
+        fprintf(stderr, "Usage: bcc <filename>\n");
         exit(1);
     }
 
