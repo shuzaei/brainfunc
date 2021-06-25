@@ -29,7 +29,7 @@ A compiler of Brainfunc.
 bcc <filename> [execname]
 ```
 
-# Language specification
+# Language specifications
 
 - Recommended extension: `.b`, `.bc`, `.bf`
 - Environment implementation: `static char buf[1000000],*ptr=buf;int main(){f_0();}`
