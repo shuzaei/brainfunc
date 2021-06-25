@@ -37,7 +37,6 @@ cc $cfile -o $execfile
 if [ $? -gt 0 ]; then
     rm $intexec
     rm $cfile
-    rm $execfile
     exit 1
 fi
 
