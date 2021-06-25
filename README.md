@@ -6,7 +6,7 @@ A compiler of Brainfunc.
 
 # Installing BCC to /usr/local/bin/
 ```sh
-chmod +x bcc.sh && sudo cp bcc.sh /usr/local/bin/bcc && sudo cp interpreter.c /usr/local/brainfunc/interpreter.c
+chmod +x bcc.sh && sudo cp bcc.sh /usr/local/bin/bcc && sudo mkdir /usr/local/brainfunc/ && sudo cp interpreter.c /usr/local/brainfunc/interpreter.c
 ```
 
 # Uninstalling BCC from /usr/bin/
