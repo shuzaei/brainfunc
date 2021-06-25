@@ -45,6 +45,8 @@ bcc <filename> [execname]
 | `()`            | `if(*ptr){}`                       |
 | `[1-9A-Za-z]`   | `[1-9A-Za-z]();`                   |
 
+- Notice: input `EOF` is `-1`.
+
 # Sample code
 - Hello World
 
