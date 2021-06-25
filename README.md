@@ -19,12 +19,12 @@ H{hhhh++++++++}
 e{hhhhhh+++++}
 l{hhhhhh++++++++++++}
 o{hhhhhh+++++++++++++++}
-c{hh++++++++++++}
-s{hh}
+C{hh++++++++++++}
+S{hh}
 W{hhhhh+++++++}
 r{hhhhhhh++}
 d{hhhhhh++++}
 E{hh+}
-n{++++++++++}
-0{H.>e.>l.>l.>o.>c.>s.>W.>o.>r.>l.>d.>E.>n.}
+N{++++++++++}
+0{H.>e.>l.>l.>o.>C.>S.>W.>o.>r.>l.>d.>E.>N.}
 ```
