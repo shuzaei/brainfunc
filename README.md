@@ -32,7 +32,7 @@ bcc <filename> [execname]
 # Language specification
 
 - Recommended extension: `.b`, `.bc`, `.bf`
-- Environment: `static int buf[1000000],*ptr=buf;`
+- Environment: `static char buf[1000000],*ptr=buf;`
 - Implementation:
 
 | code            | C implementation                   |
@@ -44,8 +44,6 @@ bcc <filename> [execname]
 | `,` `.`         | `*ptr=getchar();` `putchar(*ptr);` |
 | `()`            | `if(*ptr){}`                       |
 | `[1-9A-Za-z]`   | `[1-9A-Za-z]();`                   |
-
-- Notice: `255+1=0`, `0-1=255`
 
 # Sample code
 ```brainfuck
