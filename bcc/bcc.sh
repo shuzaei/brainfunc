@@ -1,4 +1,10 @@
 #!/bin/sh
+#
+#   Copyright 2021 shuzaei
+#
+#   Contact: shuzaei@gmail.com
+#   URL: https://github.com/shuzaei/brainfunc/
+#
 
 if [ $# = 0 ]; then
     printf "Usage: $0 <filename> [execname]\n"
