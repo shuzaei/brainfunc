@@ -93,6 +93,6 @@ Brainfunc language support.
 ## Installing extension
 Install from [here](https://marketplace.visualstudio.com/items?itemName=shuzaei.vscode-brainfunc).
 
-## Additional support
-- [Code runner setting.json addition](./utils/)
+# Additional support
+- [Code runner setting.json addition](./utils/code-runner.append.json)
 - [Progran file icon](./utils/brainfunc.icon.svg)
