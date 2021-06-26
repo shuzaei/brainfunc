@@ -202,7 +202,7 @@ int main(int argc, char **argv) {
     char src[INNER_BUFSIZE], buf[INNER_BUFSIZE], *ptr, *end;
 
     if (argc == 1) {
-        fprintf(stderr, "Usage: bcc <filename>\n");
+        fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
         exit(1);
     }
 
