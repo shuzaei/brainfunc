@@ -1,7 +1,7 @@
 # Brainfunc
 A programming language like brainf\*ck.
 
-# Language specifications
+## Language specifications
 
 - Recommended extension: `.b`, `.bc`, `.bf`
 - Environment implementation: `static char buf[1000000],*ptr=buf;int main(){f_0();}`
@@ -18,7 +18,7 @@ A programming language like brainf\*ck.
 
 - Notice: input `EOF` is `-1`.
 
-# Sample codes
+## Sample codes
 - Hello World
 
 ```brainfuck
@@ -65,7 +65,7 @@ hhh.>n.
 # BCC
 A compiler of Brainfunc.
 
-# Installing BCC
+## Installing BCC
 1. Clone [this](https://github.com/shuzaei/brainfunc/) repository.
 2. Execute the command below on the cloned directory.
 
@@ -75,7 +75,7 @@ chmod +x install.sh && ./install.sh
 
 3. (Optional) Delete the cloned files.
 
-# Uninstalling BCC
+## Uninstalling BCC
 1. Clone [this](https://github.com/shuzaei/brainfunc/) repository.
 2. Execute the command below on the cloned directory.
 
@@ -85,7 +85,7 @@ chmod +x uninstall.sh && ./uninstall.sh
 
 3. (Optional) Delete the cloned files.
 
-# Using BCC
+## Using BCC
 ```sh
 bcc <filename> [execname]
 ```
