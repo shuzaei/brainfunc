@@ -87,7 +87,7 @@ chmod +x uninstall.sh && ./uninstall.sh
 bcc <filename> [execname]
 ```
 
-# VSCode Extension
+# VSCode extension
 Brainfunc language support.
 
 ## Installing extension
