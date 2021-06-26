@@ -1,5 +1,5 @@
 # Brainfunc
-A functional programming language like brainf\*ck.
+A programming language like brainf\*ck.
 
 # BCC
 A compiler of Brainfunc.
