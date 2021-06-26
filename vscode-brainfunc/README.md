@@ -3,6 +3,7 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/shuzaei/brainfunc?style=for-the-badge)
 
 A programming language like brainf\*ck.
+
 See more details [here](https://github.com/shuzaei/brainfunc/)
 
 ## Features
