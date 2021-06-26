@@ -170,6 +170,15 @@ void interpret(char *src, char *filename) {
             printf("}");
         }
 
+        else if (*ptr == '#') {
+            while (*ptr && *ptr != '\n') {
+                col++;
+                ptr++;
+            }
+
+            if (!*ptr) break;
+        }
+
         else if (!strchr(" \r\n\t\f", *ptr)) {
             where(filename);
             fprintf(stderr, "Invalid charactor 0x%2x\n", *ptr);
