@@ -3,7 +3,7 @@ A programming language like brainf\*ck.
 
 ## Language specifications
 
-- Recommended extension: `.b`, `.bc`, `.bf`
+- Recommended extensions: `.b`, `.bc`, `.bf`
 - Environment implementation: `static char buf[1000000],*ptr=buf;int main(){f_0();}`
 - Code implementation:
 
@@ -17,25 +17,25 @@ A programming language like brainf\*ck.
 | `[0-9A-Za-z]`   | `f_[1-9A-Za-z]();`                 |
 | `#`             | `//`                               |
 
-- Notice: input `EOF` is `-1`.
+- Notice: `EOF` is given as `-1` in the input.
 
 ## Sample code
 - Hello World
 
 ```brainfuck
 h{++++++++++++++++}
-H{hhhh++++++++}
-e{hhhhhh+++++}
-l{hhhhhh++++++++++++}
-o{hhhhhh+++++++++++++++}
-C{hh++++++++++++}
-S{hh}
-W{hhhhh+++++++}
-r{hhhhhhh++}
-d{hhhhhh++++}
-E{hh+}
-N{++++++++++}
-0{H.>e.>l.>l.>o.>C.>S.>W.>o.>r.>l.>d.>E.>N.}
+H{hhhh++++++++.>}
+e{hhhhhh+++++.>}
+l{hhhhhh++++++++++++.>}
+o{hhhhhh+++++++++++++++.>}
+C{hh++++++++++++.>}
+S{hh.>}
+W{hhhhh+++++++.>}
+r{hhhhhhh++.>}
+d{hhhhhh++++.>}
+E{hh+.>}
+N{++++++++++.>}
+0{HelloCSWorldEN}
 ```
 
 - Echo
@@ -74,8 +74,6 @@ A compiler of Brainfunc.
 chmod +x install.sh && ./install.sh
 ```
 
-3. (Optional) Delete the cloned files.
-
 ## Uninstalling BCC
 1. Clone source code from [latest release](https://github.com/shuzaei/brainfunc/releases/latest/).
 2. Execute the command below on the directory `bcc/`.
@@ -83,8 +81,6 @@ chmod +x install.sh && ./install.sh
 ```sh
 chmod +x uninstall.sh && ./uninstall.sh
 ```
-
-3. (Optional) Delete the cloned files.
 
 ## Using BCC
 ```sh
