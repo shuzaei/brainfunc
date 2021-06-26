@@ -96,3 +96,16 @@ Install from [here](https://marketplace.visualstudio.com/items?itemName=shuzaei.
 # Additional support
 - [Code runner setting.json addition](./utils/code-runner.append.json)
 - [Progran file icon](./utils/brainfunc.icon.svg)
+
+# Copyright and License
+
+```LICENSE
+
+    Copyright 2021 shuzaei
+
+    Contact: shuzaei@gmail.com
+    URL: https://github.com/shuzaei/brainfunc/
+    
+    License: GNU GPL v3.0
+    
+```
