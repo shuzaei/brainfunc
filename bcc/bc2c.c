@@ -1,3 +1,10 @@
+//
+//  Copyright 2021 shuzaei
+//
+//  Contact: shuzaei@gmail.com
+//  URL: https://github.com/shuzaei/brainfunc/
+//
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
