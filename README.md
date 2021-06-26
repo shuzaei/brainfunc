@@ -9,7 +9,7 @@ A compiler of Brainfunc.
 2. Execute the command below on the cloned directory.
 
 ```sh
-./install.sh
+chmod +x install.sh && ./install.sh
 ```
 
 3. (Optional) Delete the cloned files.
@@ -19,7 +19,7 @@ A compiler of Brainfunc.
 2. Execute the command below on the cloned directory.
 
 ```sh
-./uninstall.sh
+chmod +x uninstall.sh && ./uninstall.sh
 ```
 
 3. (Optional) Delete the cloned files.
