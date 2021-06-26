@@ -4,7 +4,7 @@
 
 A programming language like brainf\*ck.
 
-See more details [here](https://github.com/shuzaei/brainfunc/)
+[See more details](https://github.com/shuzaei/brainfunc/)
 
 ## Features
 
