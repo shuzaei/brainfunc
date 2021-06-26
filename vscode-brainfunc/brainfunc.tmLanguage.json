@@ -1,0 +1,31 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "scopeName": "source.brainfunc",
+    "name": "Brainfunc",
+    "comment": "Syntax highlighting support for Brainfunc.",
+    "fileTypes": [
+        "b", "bc", "bf"
+    ],
+    "patterns": [
+        {
+            "match": "<|>",
+            "name": "storage.type.brainfunc"
+        },
+        {
+            "match": "\\+|-",
+            "name": "keyword.operator.arithmetic.brainfunc"
+        },
+        {
+            "match": "\\.|,",
+            "name": "entity.name.function.io.brainfunc"
+        },
+        {
+            "match": "[0-9A-Za-z]",
+            "name": "entity.name.function.io.brainfunc"
+        },
+        {
+            "match": "#.*$",
+            "name": "comment.brainfunc"
+        }
+    ]
+}

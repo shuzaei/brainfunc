@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd `dirname $0`
+
 chmod +x bcc.sh
 sudo cp bcc.sh /usr/local/bin/bcc
 if [ ! -d /usr/local/brainfunc/ ]; then
