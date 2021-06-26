@@ -24,18 +24,18 @@ A programming language like brainf\*ck.
 
 ```brainfuck
 h{++++++++++++++++}
-H{hhhh++++++++}
-e{hhhhhh+++++}
-l{hhhhhh++++++++++++}
-o{hhhhhh+++++++++++++++}
-C{hh++++++++++++}
-S{hh}
-W{hhhhh+++++++}
-r{hhhhhhh++}
-d{hhhhhh++++}
-E{hh+}
-N{++++++++++}
-0{H.>e.>l.>l.>o.>C.>S.>W.>o.>r.>l.>d.>E.>N.}
+H{hhhh++++++++.>}
+e{hhhhhh+++++.>}
+l{hhhhhh++++++++++++.>}
+o{hhhhhh+++++++++++++++.>}
+C{hh++++++++++++.>}
+S{hh.>}
+W{hhhhh+++++++.>}
+r{hhhhhhh++.>}
+d{hhhhhh++++.>}
+E{hh+.>}
+N{++++++++++.>}
+0{HelloCSWorldEN}
 ```
 
 - Echo
