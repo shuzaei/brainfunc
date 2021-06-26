@@ -67,16 +67,16 @@ hhh.>n.
 A compiler of Brainfunc.
 
 ## Installing BCC
-1. Download source code from [latest release](https://github.com/shuzaei/brainfunc/releases/latest/).
-2. Execute the command below on the directory of the source code.
+1. Clone source code from [latest release](https://github.com/shuzaei/brainfunc/releases/latest/).
+2. Execute the command below on the directory `bcc/`.
 
 ```sh
 chmod +x install.sh && ./install.sh
 ```
 
 ## Uninstalling BCC
-1. Download source code from [latest release](https://github.com/shuzaei/brainfunc/releases/latest/).
-2. Execute the command below on the directory of the source code.
+1. Clone source code from [latest release](https://github.com/shuzaei/brainfunc/releases/latest/).
+2. Execute the command below on the directory `bcc/`.
 
 ```sh
 chmod +x uninstall.sh && ./uninstall.sh
@@ -86,3 +86,13 @@ chmod +x uninstall.sh && ./uninstall.sh
 ```sh
 bcc <filename> [execname]
 ```
+
+# VSCode Extension
+Brainfunc language support.
+
+## Installing extension
+Install from [here](https://marketplace.visualstudio.com/items?itemName=shuzaei.vscode-brainfunc).
+
+# Additional support
+- [Code runner setting.json addition](./utils/code-runner.append.json)
+- [Progran file icon](./utils/brainfunc.icon.svg)
