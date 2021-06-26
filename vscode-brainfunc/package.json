@@ -1,0 +1,36 @@
+{
+    "name": "vscode-brainfunc",
+    "displayName": "Brainfunc",
+    "version": "1.0.0",
+    "publisher": "Shuz*",
+    "icon": "./brainfunc.icon128.png",
+    "engines": {
+        "vscode": "^1.57.1"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "main": "./extension.js",
+    "activationEvents": [
+        "*"
+    ],
+    "contributes": {
+        "languages": [
+            {
+               "id": "brainfunc",
+               "extensions": [".b", ".bc", ".bf"],
+               "configuration": "./brainfunc.language-configuration.json"
+            }
+        ],
+        "grammars": [{
+            "language": "brainfunc",
+            "scopeName": "source.brainfunc",
+            "path": "./brainfunc.tmLanguage.json"
+        }]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/shuzaei/brainfunc/"
+      },
+    "homepage": "https://github.com/shuzaei/brainfunc/blob/main/vscode-brainfunc/README.md"
+}

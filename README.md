@@ -19,7 +19,7 @@ A programming language like brainf\*ck.
 
 - Notice: input `EOF` is `-1`.
 
-## Sample codes
+## Sample code
 - Hello World
 
 ```brainfuck
@@ -68,7 +68,7 @@ A compiler of Brainfunc.
 
 ## Installing BCC
 1. Clone source code from [latest release](https://github.com/shuzaei/brainfunc/releases/latest/).
-2. Execute the command below on the cloned directory.
+2. Execute the command below on the directory `bcc/`.
 
 ```sh
 chmod +x install.sh && ./install.sh
@@ -78,7 +78,7 @@ chmod +x install.sh && ./install.sh
 
 ## Uninstalling BCC
 1. Clone source code from [latest release](https://github.com/shuzaei/brainfunc/releases/latest/).
-2. Execute the command below on the cloned directory.
+2. Execute the command below on the directory `bcc/`.
 
 ```sh
 chmod +x uninstall.sh && ./uninstall.sh
