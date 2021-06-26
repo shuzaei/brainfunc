@@ -1,6 +1,23 @@
 # Brainfunc
 A programming language like brainf\*ck.
 
+# Language specifications
+
+- Recommended extension: `.b`, `.bc`, `.bf`
+- Environment implementation: `static char buf[1000000],*ptr=buf;int main(){f_0();}`
+- Code implementation:
+
+| code            | C implementation                   |
+| :-------------- | :--------------------------------- |
+| `[0-9A-Za-z]{}` | `void f_[1-9A-Za-z](void){}`       |
+| `>` `<`         | `ptr++;` `ptr--;`                  |
+| `+` `-`         | `(*ptr)++;` `(*ptr)--;`            |
+| `,` `.`         | `*ptr=getchar();` `putchar(*ptr);` |
+| `()`            | `if(*ptr){}`                       |
+| `[0-9A-Za-z]`   | `f_[1-9A-Za-z]();`                 |
+
+- Notice: input `EOF` is `-1`.
+
 # BCC
 A compiler of Brainfunc.
 
@@ -28,23 +45,6 @@ chmod +x uninstall.sh && ./uninstall.sh
 ```sh
 bcc <filename> [execname]
 ```
-
-# Language specifications
-
-- Recommended extension: `.b`, `.bc`, `.bf`
-- Environment implementation: `static char buf[1000000],*ptr=buf;int main(){f_0();}`
-- Code implementation:
-
-| code            | C implementation                   |
-| :-------------- | :--------------------------------- |
-| `[0-9A-Za-z]{}` | `void f_[1-9A-Za-z](void){}`         |
-| `>` `<`         | `ptr++;` `ptr--;`                  |
-| `+` `-`         | `(*ptr)++;` `(*ptr)--;`            |
-| `,` `.`         | `*ptr=getchar();` `putchar(*ptr);` |
-| `()`            | `if(*ptr){}`                       |
-| `[0-9A-Za-z]`   | `f_[1-9A-Za-z]();`                   |
-
-- Notice: input `EOF` is `-1`.
 
 # Sample codes
 - Hello World
