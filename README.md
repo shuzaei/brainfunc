@@ -15,6 +15,7 @@ A programming language like brainf\*ck.
 | `,` `.`         | `*ptr=getchar();` `putchar(*ptr);` |
 | `()`            | `if(*ptr){}`                       |
 | `[0-9A-Za-z]`   | `f_[1-9A-Za-z]();`                 |
+| `#`             | `//`                               |
 
 - Notice: input `EOF` is `-1`.
 
