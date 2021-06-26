@@ -74,8 +74,6 @@ A compiler of Brainfunc.
 chmod +x install.sh && ./install.sh
 ```
 
-3. (Optional) Delete the downloaded files.
-
 ## Uninstalling BCC
 1. Download source code from [latest release](https://github.com/shuzaei/brainfunc/releases/latest/).
 2. Execute the command below on the directory of the source code.
@@ -83,8 +81,6 @@ chmod +x install.sh && ./install.sh
 ```sh
 chmod +x uninstall.sh && ./uninstall.sh
 ```
-
-3. (Optional) Delete the downloaded files.
 
 ## Using BCC
 ```sh
