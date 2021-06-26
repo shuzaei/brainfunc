@@ -10,7 +10,7 @@
 
 #define where(filename) fprintf(stderr, "\e[91mError:\e[0m %s:%d:%d: ", filename, line, col)
 
-int interpret(char *src, char *filename) {
+void interpret(char *src, char *filename) {
     char *ptr, name = '0';
     int stat = 0, depth = 0, line = 0, col = 0, f0 = 0, fA = 0, fa = 0;
 
