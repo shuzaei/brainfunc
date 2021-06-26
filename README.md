@@ -23,17 +23,17 @@ A programming language like brainf\*ck.
 - Hello World
 
 ```brainfuck
-h{++++++++++++++++}
-H{hhhh++++++++.>}
-e{hhhhhh+++++.>}
-l{hhhhhh++++++++++++.>}
-o{hhhhhh+++++++++++++++.>}
-C{hh++++++++++++.>}
-S{hh.>}
-W{hhhhh+++++++.>}
-r{hhhhhhh++.>}
-d{hhhhhh++++.>}
-E{hh+.>}
+I{++++++++++++++++}
+H{IIII++++++++.>}
+e{IIIIII+++++.>}
+l{IIIIII++++++++++++.>}
+o{IIIIII+++++++++++++++.>}
+C{II++++++++++++.>}
+S{II.>}
+W{IIIII+++++++.>}
+r{IIIIIII++.>}
+d{IIIIII++++.>}
+E{II+.>}
 N{++++++++++.>}
 0{HelloCSWorldEN}
 ```
@@ -47,19 +47,24 @@ N{++++++++++.>}
 - Add
 
 ```brainfuck
-a{>(-<+a>)<}
+# add
+A{>(-<+A>)<}
 
-h{++++++++++++++++}
-d{----------------}
+# increment/decrement 0x10
+I{++++++++++++++++}
+D{----------------}
 
-n{h------}
+# input/output 1 digit
+G{,DDD(-(-(-(-(-(-(-(-(-(>+<+)+)+)+)+)+)+)+)+)+)>(-<D)}
+P{III.>}
 
-i{,ddd(-(-(-(-(-(-(-(-(-(>+<+)+)+)+)+)+)+)+)+)+)>(-<i)}
+# print new line
+N{++++++++++.>}
 
 0{
-ii<<
-a
-hhh.>n.
+GG<<
+A
+PN
 }
 ```
 
