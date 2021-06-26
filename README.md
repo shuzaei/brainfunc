@@ -86,3 +86,13 @@ chmod +x uninstall.sh && ./uninstall.sh
 ```sh
 bcc <filename> [execname]
 ```
+
+# VSCode Extension
+Brainfunc language support.
+
+## Installing extension
+Install from [here](https://marketplace.visualstudio.com/items?itemName=shuzaei.vscode-brainfunc).
+
+## Additional support
+- [Code runner setting.json addition](./utils/)
+- [Progran file icon](./utils/brainfunc.icon.svg)

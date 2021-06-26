@@ -1,4 +1,7 @@
 {
+    "comments": {
+        "lineComment": "#",
+    },
     // symbols used as brackets
     "brackets": [
         ["(", ")"],
@@ -13,5 +16,6 @@
     "surroundingPairs": [
         ["(", ")"],
         ["{", "}"]
-    ]
+    ],
+    "wordPattern": "[0-9A-Za-z\\+-\\.,<>]"
 }
