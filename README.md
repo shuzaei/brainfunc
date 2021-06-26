@@ -7,7 +7,7 @@ A programming language like brainf\*ck.
 - Environment implementation: `static char buf[1000000],*ptr=buf;int main(){f_0();}`
 - Code implementation:
 
-| code            | C implementation                   |
+| Code            | C implementation                   |
 | :-------------- | :--------------------------------- |
 | `[0-9A-Za-z]{}` | `void f_[1-9A-Za-z](void){}`       |
 | `>` `<`         | `ptr++;` `ptr--;`                  |
