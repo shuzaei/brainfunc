@@ -67,7 +67,7 @@ hhh.>n.
 A compiler of Brainfunc.
 
 ## Installing BCC
-1. Clone [this](https://github.com/shuzaei/brainfunc/) repository.
+1. Clone source code from [latest release](https://github.com/shuzaei/brainfunc/releases/latest/).
 2. Execute the command below on the cloned directory.
 
 ```sh
@@ -77,7 +77,7 @@ chmod +x install.sh && ./install.sh
 3. (Optional) Delete the cloned files.
 
 ## Uninstalling BCC
-1. Clone [this](https://github.com/shuzaei/brainfunc/) repository.
+1. Clone source code from [latest release](https://github.com/shuzaei/brainfunc/releases/latest/).
 2. Execute the command below on the cloned directory.
 
 ```sh
