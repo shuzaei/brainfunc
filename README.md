@@ -19,7 +19,7 @@ A programming language like brainf\*ck.
 
 - Notice: `EOF` is given as `-1` in the input.
 
-## Sample codes
+## Sample code
 - Hello World
 
 ```brainfuck
