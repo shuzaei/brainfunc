@@ -20,7 +20,7 @@ fi
 intexec=`mktemp "/tmp/tmp.XXXXXX.out"`
 cfile=`mktemp "/tmp/tmp.XXXXXX.c"`
 
-cc /usr/local/brainfunc/interpreter.c -o $intexec
+cc /usr/local/brainfunc/bc2c.c -o $intexec
 if [ $? -gt 0 ]; then
     exit 1
 fi
