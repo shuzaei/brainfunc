@@ -77,7 +77,7 @@ A compiler of Brainfunc.
 2. Execute the command below on the directory `bcc/`.
 
 ```sh
-chmod +x install.sh && ./install.sh
+./install.sh
 ```
 
 ## Uninstalling BCC
@@ -85,7 +85,7 @@ chmod +x install.sh && ./install.sh
 2. Execute the command below on the directory `bcc/`.
 
 ```sh
-chmod +x uninstall.sh && ./uninstall.sh
+./uninstall.sh
 ```
 
 ## Using BCC
