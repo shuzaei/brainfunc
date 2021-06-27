@@ -29,17 +29,17 @@ A programming language like brainf\*ck.
 ```python
 I{++++++++++++++++}
 H{IIII++++++++.>}
-e{IIIIII+++++.>}
-l{IIIIII++++++++++++.>}
-o{IIIIII+++++++++++++++.>}
+E{IIIIII+++++.>}
+L{IIIIII++++++++++++.>}
+O{IIIIII+++++++++++++++.>}
 C{II++++++++++++.>}
 S{II.>}
 W{IIIII+++++++.>}
-r{IIIIIII++.>}
-d{IIIIII++++.>}
+R{IIIIIII++.>}
+D{IIIIII++++.>}
 E{II+.>}
 N{++++++++++.>}
-_{HelloCSWorldEN}
+_{HELLOCSWORLDEN}
 ```
 
 - Echo
