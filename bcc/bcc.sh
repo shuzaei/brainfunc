@@ -26,7 +26,7 @@ fi
 bc2c=$(mktemp "/tmp/tmp.bc2c.out.XXXXXX")
 c=$(mktemp "/tmp/tmp.$(basename $1).c.XXXXXX")
 
-cc /usr/local/brainfunc/bc2c.c -o $bc2c
+cc -o $bc2c /usr/local/brainfunc/bc2c.c
 if [ $? -gt 0 ]; then
     exit 1
 fi
@@ -38,7 +38,7 @@ if [ $? -gt 0 ]; then
     exit 1
 fi
 
-cc $c -o $out
+cc -o $out $c
 if [ $? -gt 0 ]; then
     rm $bc2c
     rm $c
