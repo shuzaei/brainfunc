@@ -7,7 +7,7 @@
 #
 
 if [ $# = 0 ]; then
-    printf "Usage: $0 <filename> [output filename]\n"
+    printf "Usage: bcc <filename> [output filename]\n"
     exit 1
 elif [ $# = 1 ]; then
     out="a.out"
@@ -26,7 +26,7 @@ fi
 bc2c="/tmp/tmp.bc2c.$(uuidgen).out"
 c="/tmp/tmp.$(basename $1 .bc).$(uuidgen).c"
 
-cc -o $bc2c /usr/local/lib/bc2c.c
+cc -o $bc2c "$(dirname $0)/../lib/bc2c.c"
 if [ $? -gt 0 ]; then
     exit 1
 fi
