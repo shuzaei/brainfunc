@@ -19,83 +19,29 @@
 
 void interpret(char *src, char *filename) {
     char *ptr, name = '0';
-    int stat = 0, depth = 0, line = 0, col = 0, f0 = 0, fA = 0, fa = 0, f_ = 0;
+    int stat = 0, depth = 0, line = 0, col = 0, flags[128] = {};
 
     for (ptr = src; *ptr; ptr++) {
-        if ('0' <= *ptr && *ptr <= '9') {
+        if (('0' <= *ptr && *ptr <= '9') || ('A' <= *ptr && *ptr <= 'Z') || ('a' <= *ptr && *ptr <= 'z') || *ptr == '_') {
             if (!(stat & IN_FUNC)) {
                 if (stat & FUNC_NAME_DEFINED) {
                     where(filename);
                     fprintf(stderr, "Invalid function name\n");
                     exit(1);
                 }
-                if (f0 & (1 << (*ptr - '0'))) {
+                if (flags[*ptr]) {
                     where(filename);
                     fprintf(stderr, "Invalid redeclaration of function \'%c\'\n", *ptr);
                     exit(1);
                 }
-                f0 |= 1 << (*ptr - '0');
-                name = *ptr;
-                stat |= FUNC_NAME_DEFINED;
-            } else {
-                printf("f_%c();", *ptr);
-            }
-        } else if ('A' <= *ptr && *ptr <= 'Z') {
-            if (!(stat & IN_FUNC)) {
-                if (stat & FUNC_NAME_DEFINED) {
-                    where(filename);
-                    fprintf(stderr, "Invalid function name\n");
-                    exit(1);
-                }
-                if (fA & (1 << (*ptr - 'A'))) {
-                    where(filename);
-                    fprintf(stderr, "Invalid redeclaration of function \'%c\'\n", *ptr);
-                    exit(1);
-                }
-                fA |= 1 << (*ptr - 'A');
-                name = *ptr;
-                stat |= FUNC_NAME_DEFINED;
-            } else {
-                printf("f_%c();", *ptr);
-            }
-        } else if ('a' <= *ptr && *ptr <= 'z') {
-            if (!(stat & IN_FUNC)) {
-                if (stat & FUNC_NAME_DEFINED) {
-                    where(filename);
-                    fprintf(stderr, "Invalid function name\n");
-                    exit(1);
-                }
-                if (fa & (1 << (*ptr - 'a'))) {
-                    where(filename);
-                    fprintf(stderr, "Invalid redeclaration of function \'%c\'\n", *ptr);
-                    exit(1);
-                }
-                fa |= 1 << (*ptr - 'a');
-                name = *ptr;
-                stat |= FUNC_NAME_DEFINED;
-            } else {
-                printf("f_%c();", *ptr);
-            }
-        } else if (*ptr == '_') {
-            if (!(stat & IN_FUNC)) {
-                if (stat & FUNC_NAME_DEFINED) {
-                    where(filename);
-                    fprintf(stderr, "Invalid function name\n");
-                    exit(1);
-                }
-                if (f_) {
-                    where(filename);
-                    fprintf(stderr, "Invalid redeclaration of function \'%c\'\n", *ptr);
-                    exit(1);
-                }
-                f_ |= 1;
+                flags[*ptr] = 1;
                 name = *ptr;
                 stat |= FUNC_NAME_DEFINED;
             } else {
                 printf("f_%c();", *ptr);
             }
         }
-
+        
         else if (*ptr == '{') {
             if (stat & IN_FUNC) {
                 where(filename);
@@ -180,7 +126,7 @@ void interpret(char *src, char *filename) {
         }
     }
 
-    if (!f_) {
+    if (!flags['_']) {
         where(filename);
         fprintf(stderr, "Missing function _\n");
         exit(1);
