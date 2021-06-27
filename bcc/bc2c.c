@@ -19,7 +19,7 @@
 
 void interpret(char *src, char *filename) {
     char *ptr, name = '0';
-    int stat = 0, depth = 0, line = 0, col = 0, f0 = 0, fA = 0, fa = 0;
+    int stat = 0, depth = 0, line = 0, col = 0, f0 = 0, fA = 0, fa = 0, f_ = 0;
 
     for (ptr = src; *ptr; ptr++) {
         if ('0' <= *ptr && *ptr <= '9') {
@@ -71,6 +71,24 @@ void interpret(char *src, char *filename) {
                     exit(1);
                 }
                 fa |= 1 << (*ptr - 'a');
+                name = *ptr;
+                stat |= FUNC_NAME_DEFINED;
+            } else {
+                printf("f_%c();", *ptr);
+            }
+        } else if (*ptr == '_') {
+            if (!(stat & IN_FUNC)) {
+                if (stat & FUNC_NAME_DEFINED) {
+                    where(filename);
+                    fprintf(stderr, "Invalid function name\n");
+                    exit(1);
+                }
+                if (f_) {
+                    where(filename);
+                    fprintf(stderr, "Invalid redeclaration of function \'%c\'\n", *ptr);
+                    exit(1);
+                }
+                f_ |= 1;
                 name = *ptr;
                 stat |= FUNC_NAME_DEFINED;
             } else {
@@ -200,7 +218,7 @@ void interpret(char *src, char *filename) {
         }
     }
 
-    if (!(f0 & 1)) {
+    if (!f_) {
         where(filename);
         fprintf(stderr, "Missing function 0\n");
         exit(1);
@@ -259,9 +277,10 @@ int main(int argc, char **argv) {
            "void f_k(void);void f_l(void);void f_m(void);void f_n(void);void f_o(void);"
            "void f_p(void);void f_q(void);void f_r(void);void f_s(void);void f_t(void);"
            "void f_u(void);void f_v(void);void f_w(void);void f_x(void);void f_y(void);"
-           "void f_z(void);",
+           "void f_z(void);"
+           "void f__(void);",
            BUFSIZE);
 
     interpret(src, argv[1]);
-    printf("int main(void){f_0();return 0;}\n");
+    printf("int main(void){f__();return 0;}\n");
 }

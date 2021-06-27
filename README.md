@@ -7,17 +7,17 @@ A programming language like brainf\*ck.
 ## Language specifications
 
 - Recommended extension: `.bc`
-- Environment: `char buf[1000000],*ptr=buf;int main(){f_0();}`
+- Environment: `char buf[1000000],*ptr=buf;int main(){f__();}`
 - Commands:
 
 | Command         | C equivalent                       |
 | :-------------- | :--------------------------------- |
-| `[0-9A-Za-z]{}` | `void f_[1-9A-Za-z](void){}`       |
+| `[0-9A-Za-z_]{}` | `void f_[1-9A-Za-z_](void){}`       |
 | `>` `<`         | `ptr++;` `ptr--;`                  |
 | `+` `-`         | `(*ptr)++;` `(*ptr)--;`            |
 | `,` `.`         | `*ptr=getchar();` `putchar(*ptr);` |
 | `()`            | `if(*ptr){}`                       |
-| `[0-9A-Za-z]`   | `f_[1-9A-Za-z]();`                 |
+| `[0-9A-Za-z_]`   | `f_[1-9A-Za-z_]();`                 |
 | `#`             | `//`                               |
 
 - Notice: you receive `-1` as `EOF` in the input.
@@ -39,13 +39,13 @@ r{IIIIIII++.>}
 d{IIIIII++++.>}
 E{II+.>}
 N{++++++++++.>}
-0{HelloCSWorldEN}
+_{HelloCSWorldEN}
 ```
 
 - Echo
 
 ```brainfuck
-0{,+(-.0)}
+_{,+(-._)}
 ```
 
 - Add
@@ -65,7 +65,7 @@ P{III.>}
 # print new line
 N{++++++++++.>}
 
-0{
+_{
 GG<<
 A
 PN
