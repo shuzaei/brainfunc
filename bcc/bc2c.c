@@ -124,69 +124,31 @@ void interpret(char *src, char *filename) {
             stat = 0;
             printf("}");
         }
+        
+        else if (strchr("><+-,.()", *ptr) && !(stat & IN_FUNC)) {
+            where(filename);
+            fprintf(stderr, "Invalid expression outside of a function\n");
+            exit(1);
+        }
 
         else if (*ptr == '>') {
-            if (!(stat & IN_FUNC)) {
-                where(filename);
-                fprintf(stderr, "Invalid expression outside of a function\n");
-                exit(1);
-            }
             printf("ptr++;");
         } else if (*ptr == '<') {
-            if (!(stat & IN_FUNC)) {
-                where(filename);
-                fprintf(stderr, "Invalid expression outside of a function\n");
-                exit(1);
-            }
             printf("ptr--;");
-        }
-
-        else if (*ptr == '+') {
-            if (!(stat & IN_FUNC)) {
-                where(filename);
-                fprintf(stderr, "Invalid expression outside of a function\n");
-                exit(1);
-            }
+        } else if (*ptr == '+') {
             printf("(*ptr)++;");
         } else if (*ptr == '-') {
-            if (!(stat & IN_FUNC)) {
-                where(filename);
-                fprintf(stderr, "Invalid expression outside of a function\n");
-                exit(1);
-            }
             printf("(*ptr)--;");
-        }
-
-        else if (*ptr == ',') {
-            if (!(stat & IN_FUNC)) {
-                where(filename);
-                fprintf(stderr, "Invalid expression outside of a function\n");
-                exit(1);
-            }
+        } else if (*ptr == ',') {
             printf("*ptr=getchar();");
         } else if (*ptr == '.') {
-            if (!(stat & IN_FUNC)) {
-                where(filename);
-                fprintf(stderr, "Invalid expression outside of a function\n");
-                exit(1);
-            }
             printf("putchar(*ptr);");
         }
 
         else if (*ptr == '(') {
-            if (!(stat & IN_FUNC)) {
-                where(filename);
-                fprintf(stderr, "Invalid expression outside of a function\n");
-                exit(1);
-            }
             ++depth;
             printf("if(*ptr){");
         } else if (*ptr == ')') {
-            if (!(stat & IN_FUNC)) {
-                where(filename);
-                fprintf(stderr, "Invalid expression outside of a function\n");
-                exit(1);
-            }
             if (--depth < 0) {
                 where(filename);
                 fprintf(stderr, "Unbalanced parenthesis )\n");
@@ -220,7 +182,7 @@ void interpret(char *src, char *filename) {
 
     if (!f_) {
         where(filename);
-        fprintf(stderr, "Missing function 0\n");
+        fprintf(stderr, "Missing function _\n");
         exit(1);
     }
     if (stat) {
