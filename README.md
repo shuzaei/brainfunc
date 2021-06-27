@@ -81,7 +81,7 @@ brew install shuzaei/brainfunc/brainfunc
 
 ## Using BCC
 ```sh
-bcc <filename> [execname]
+bcc <filename> [output filename]
 ```
 
 # VSCode extension
