@@ -7,7 +7,7 @@
 #
 
 if [ $# = 0 ]; then
-    printf "Usage: $0 <filename> [execname]\n"
+    printf "Usage: $0 <filename> [output filename]\n"
     exit 1
 elif [ $# = 1 ]; then
     out="a.out"
@@ -24,7 +24,7 @@ if [ ! -e $1 ]; then
 fi
 
 bc2c=`mktemp "/tmp/tmp.XXXXXX.bc2c.out"`
-c=`mktemp "/tmp/tmp.XXXXXX.c"`
+c=`mktemp "/tmp/tmp.XXXXXX.`basename $1`.c"`
 
 cc /usr/local/brainfunc/bc2c.c -o $bc2c
 if [ $? -gt 0 ]; then
