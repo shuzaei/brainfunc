@@ -20,8 +20,8 @@ A programming language like brainf\*ck.
 | `[0-9A-Za-z]`   | `f_[1-9A-Za-z]();`                 |
 | `#`             | `//`                               |
 
-- Notice: You receive `-1` as `EOF` in the input.
-- Notice: Out of bounds array accesses have undefined behavior.
+- Notice: you receive `-1` as `EOF` in the input.
+- Notice: out of bounds array accesses have undefined behavior.
 
 ## Sample code
 - Hello World
