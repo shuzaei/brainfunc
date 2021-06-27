@@ -26,7 +26,7 @@ A programming language like brainf\*ck.
 ## Sample code
 - Hello World
 
-```brainfuck
+```python
 I{++++++++++++++++}
 H{IIII++++++++.>}
 e{IIIIII+++++.>}
@@ -44,13 +44,13 @@ _{HelloCSWorldEN}
 
 - Echo
 
-```brainfuck
+```python
 _{,+(-._)}
 ```
 
 - Add
 
-```brainfuck
+```python
 # add
 A{>(-<+A>)<}
 
