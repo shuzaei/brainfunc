@@ -23,8 +23,8 @@ if [ ! -e $1 ]; then
     exit 1
 fi
 
-bc2c=$(mktemp "/tmp/tmp.bc2c.out.XXXXXX")
-c=$(mktemp "/tmp/tmp.$(basename $1).c.XXXXXX")
+bc2c="/tmp/tmp.bc2c.$(uuidgen).out"
+c="/tmp/tmp.$(basename $1 .bc).$(uuidgen).c"
 
 cc -o $bc2c /usr/local/lib/bc2c.c
 if [ $? -gt 0 ]; then
