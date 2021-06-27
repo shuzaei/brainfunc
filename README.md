@@ -3,7 +3,7 @@ A programming language like brainf\*ck.
 
 ## Language specifications
 
-- Recommended extensions: `.b`, `.bc`, `.bf`
+- Recommended extension: `.bc`
 - Environment: `char buf[1000000],*ptr=buf;int main(){f_0();}`
 - Commands:
 
