@@ -103,7 +103,7 @@ Install from [here](https://marketplace.visualstudio.com/items?itemName=shuzaei.
 - [Code runner setting.json addition](./utils/code-runner.append.json)
 - [Program file icon](./utils/brainfunc.icon.svg)
 
-# Copyright and license (summery)
+# Copyright and license (summary)
 
 ```LICENSE
 
