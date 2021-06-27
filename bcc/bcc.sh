@@ -24,7 +24,7 @@ if [ ! -e $1 ]; then
 fi
 
 bc2c=`mktemp "/tmp/tmp.XXXXXX.bc2c.out"`
-c=`mktemp "/tmp/tmp.XXXXXX.`basename $1`.c"`
+c=`mktemp "/tmp/tmp.XXXXXX.$(basename $1).c"`
 
 cc /usr/local/brainfunc/bc2c.c -o $bc2c
 if [ $? -gt 0 ]; then
