@@ -76,8 +76,7 @@ A compiler of Brainfunc.
 Execute the command below.
 
 ```sh
-brew tap shuzaei/brainfunc
-brew install brainfunc
+brew tap shuzaei/brainfunc && brew install brainfunc
 ```
 
 ## Using BCC
