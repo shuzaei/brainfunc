@@ -19,9 +19,10 @@
             {
                 "id": "brainfunc",
                 "extensions": [
-                    ".b",
-                    ".bc",
-                    ".bf"
+                    ".bc"
+                ],
+                "aliases": [
+                    "Brainfunc"
                 ],
                 "configuration": "./brainfunc.language-configuration.json"
             }
