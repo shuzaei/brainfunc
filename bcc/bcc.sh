@@ -10,9 +10,9 @@ if [ $# = 0 ]; then
     printf "Usage: $0 <filename> [execname]\n"
     exit 1
 elif [ $# = 1 ]; then
-    exec="a.out"
+    out="a.out"
 elif [ $# = 2 ]; then
-    exec=$2
+    out=$2
 else
     printf "\e[31mError:\e[0m Too many argments\n"
     exit 1
@@ -38,7 +38,7 @@ if [ $? -gt 0 ]; then
     exit 1
 fi
 
-cc $c -o $exec
+cc $c -o $out
 if [ $? -gt 0 ]; then
     rm $bc2c
     rm $c
