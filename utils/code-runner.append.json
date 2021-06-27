@@ -1,7 +1,5 @@
 {
     "code-runner.executorMapByFileExtension" : {
-        "b": "bcc $fileName $dir$fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "bc": "bcc $fileName $dir$fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "bf": "bcc $fileName $dir$fileNameWithoutExt && $dir$fileNameWithoutExt"
+        ".bc": "cd $dir && bcc $fileName $fileNameWithoutExt && ./$fileNameWithoutExt"
     }
 }
