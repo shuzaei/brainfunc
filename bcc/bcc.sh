@@ -23,8 +23,8 @@ if [ ! -e $1 ]; then
     exit 1
 fi
 
-bc2c=$(mktemp "/tmp/tmp.XXXXXX.bc2c.out")
-c=$(mktemp "/tmp/tmp.XXXXXX.$(basename $1).c")
+bc2c=$(mktemp "/tmp/tmp.bc2c.out.XXXXXX")
+c=$(mktemp "/tmp/tmp.$(basename $1).c.XXXXXX")
 
 cc /usr/local/brainfunc/bc2c.c -o $bc2c
 if [ $? -gt 0 ]; then
