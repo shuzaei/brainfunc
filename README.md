@@ -4,10 +4,10 @@ A programming language like brainf\*ck.
 ## Language specifications
 
 - Recommended extensions: `.b`, `.bc`, `.bf`
-- Environment implementation: `static char buf[1000000],*ptr=buf;int main(){f_0();}`
-- Code implementation:
+- Environment: `char buf[1000000],*ptr=buf;int main(){f_0();}`
+- Commands:
 
-| Code            | C implementation                   |
+| Command         | C equivalent                       |
 | :-------------- | :--------------------------------- |
 | `[0-9A-Za-z]{}` | `void f_[1-9A-Za-z](void){}`       |
 | `>` `<`         | `ptr++;` `ptr--;`                  |
@@ -17,7 +17,8 @@ A programming language like brainf\*ck.
 | `[0-9A-Za-z]`   | `f_[1-9A-Za-z]();`                 |
 | `#`             | `//`                               |
 
-- Notice: `EOF` is given as `-1` in the input.
+- Notice: You receive `-1` as `EOF` in the input.
+- Notice: Out of bounds array accesses have undefined behavior.
 
 ## Sample code
 - Hello World
