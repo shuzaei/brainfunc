@@ -7,3 +7,4 @@ if [ ! -d out/ ]; then
 fi
 
 sudo tar -zcvf out/homebrew-package.tar.gz bcc
+sha256sum out/homebrew-package.tar.gz
