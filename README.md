@@ -51,7 +51,7 @@ N{++++++++++.>}
 # add
 A{>(-<+A>)<}
 
-# increment/decrement 0x10
+# add/subtract 0x10
 I{++++++++++++++++}
 D{----------------}
 
