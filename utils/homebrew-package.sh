@@ -1,4 +1,4 @@
 #!/bin/sh
 
 cd $(dirname $0)/../
-tar -zcvf brainfunc-bcc.tar.gz bcc/
+tar -zcvf out/homebrew-package.tar.gz bcc/
