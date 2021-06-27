@@ -10,9 +10,9 @@ if [ $# = 0 ]; then
     printf "Usage: $0 <filename> [execname]\n"
     exit 1
 elif [ $# = 1 ]; then
-    execfile="a.out"
+    exec="a.out"
 elif [ $# = 2 ]; then
-    execfile=$2
+    exec=$2
 else
     printf "\e[31mError:\e[0m Too many argments\n"
     exit 1
@@ -23,27 +23,27 @@ if [ ! -e $1 ]; then
     exit 1
 fi
 
-intexec=`mktemp "/tmp/tmp.XXXXXX.out"`
-cfile=`mktemp "/tmp/tmp.XXXXXX.c"`
+bc2c=`mktemp "/tmp/tmp.XXXXXX.bc2c.out"`
+c=`mktemp "/tmp/tmp.XXXXXX.c"`
 
-cc /usr/local/brainfunc/bc2c.c -o $intexec
+cc /usr/local/brainfunc/bc2c.c -o $bc2c
 if [ $? -gt 0 ]; then
     exit 1
 fi
 
-$intexec $1 > $cfile
+$bc2c $1 > $c
 if [ $? -gt 0 ]; then
-    rm $intexec
-    rm $cfile
+    rm $bc2c
+    rm $c
     exit 1
 fi
 
-cc $cfile -o $execfile
+cc $c -o $exec
 if [ $? -gt 0 ]; then
-    rm $intexec
-    rm $cfile
+    rm $bc2c
+    rm $c
     exit 1
 fi
 
-rm $intexec
-rm $cfile
+rm $bc2c
+rm $c
