@@ -11,6 +11,8 @@
         "Programming Languages"
     ],
     "main": "./extension.js",
+    "activationEvents": [
+    ],
     "contributes": {
         "languages": [
             {
