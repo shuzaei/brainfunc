@@ -4,7 +4,7 @@
     "name": "Brainfunc",
     "comment": "Syntax highlighting support for Brainfunc.",
     "fileTypes": [
-        "b", "bc", "bf"
+        "bc"
     ],
     "patterns": [
         {
