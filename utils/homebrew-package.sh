@@ -6,4 +6,4 @@ if [ ! -d out/ ]; then
     sudo mkdir out/
 fi
 
-tar -zcvf out/homebrew-package.tar.gz bcc/
+sudo tar -zcvf out/homebrew-package.tar.gz bcc
