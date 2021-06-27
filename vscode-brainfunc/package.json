@@ -1,7 +1,7 @@
 {
     "name": "vscode-brainfunc",
     "displayName": "Brainfunc",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "shuzaei",
     "icon": "brainfunc.icon128.png",
     "engines": {
