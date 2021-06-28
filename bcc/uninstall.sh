@@ -1,6 +1,4 @@
-#!/bin/sh
-
-cd $(dirname $0)
+#!/bin/bash
 
 sudo rm /usr/local/bin/bcc
-sudo rm /usr/local/lib/bc2c.c
+sudo rm /usr/local/bin/bc2c

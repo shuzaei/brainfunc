@@ -7,71 +7,22 @@ A programming language like brainf\*ck.
 ## Language specifications
 
 - Recommended extension: `.bc`
-- Environment: `char buf[1000000],*ptr=buf;int main(){f_0();}`
+- Environment: `char buf[1000000],*ptr=buf;int main(){f__();}`
 - Commands:
 
 | Command         | C equivalent                       |
 | :-------------- | :--------------------------------- |
-| `[0-9A-Za-z]{}` | `void f_[1-9A-Za-z](void){}`       |
+| `[0-9A-Za-z_]{}` | `void f_[1-9A-Za-z_](void){}`       |
 | `>` `<`         | `ptr++;` `ptr--;`                  |
 | `+` `-`         | `(*ptr)++;` `(*ptr)--;`            |
 | `,` `.`         | `*ptr=getchar();` `putchar(*ptr);` |
 | `()`            | `if(*ptr){}`                       |
-| `[0-9A-Za-z]`   | `f_[1-9A-Za-z]();`                 |
+| `[0-9A-Za-z_]`   | `f_[1-9A-Za-z_]();`                 |
 | `#`             | `//`                               |
 
 - **Notice: developing is WIP, function name _ is to be added, and the main function is to be f__.**
 - Notice: you receive `-1` as `EOF` in the input.
 - Notice: out of bounds array accesses have undefined behavior.
-
-## Sample code
-- Hello World
-
-```brainfuck
-I{++++++++++++++++}
-H{IIII++++++++.>}
-e{IIIIII+++++.>}
-l{IIIIII++++++++++++.>}
-o{IIIIII+++++++++++++++.>}
-C{II++++++++++++.>}
-S{II.>}
-W{IIIII+++++++.>}
-r{IIIIIII++.>}
-d{IIIIII++++.>}
-E{II+.>}
-N{++++++++++.>}
-0{HelloCSWorldEN}
-```
-
-- Echo
-
-```brainfuck
-0{,+(-.0)}
-```
-
-- Add
-
-```brainfuck
-# add
-A{>(-<+A>)<}
-
-# add/subtract 0x10
-I{++++++++++++++++}
-D{----------------}
-
-# input/output 1 digit
-G{,DDD(-(-(-(-(-(-(-(-(-(>+<+)+)+)+)+)+)+)+)+)+)>(-<G)}
-P{III.>}
-
-# print new line
-N{++++++++++.>}
-
-0{
-GG<<
-A
-PN
-}
-```
 
 # BCC
 A compiler of Brainfunc.

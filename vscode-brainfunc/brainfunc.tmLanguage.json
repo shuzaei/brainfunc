@@ -20,7 +20,7 @@
             "name": "entity.name.function.io.brainfunc"
         },
         {
-            "match": "[0-9A-Za-z]",
+            "match": "[0-9A-Za-z_]",
             "name": "entity.name.function.io.brainfunc"
         },
         {
