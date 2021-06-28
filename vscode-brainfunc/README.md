@@ -1,5 +1,5 @@
-![Latest GitHub release](https://img.shields.io/github/release/shuzaei/brainfunc?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/shuzaei/brainfunc?style=for-the-badge)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/shuzaei/brainfunc?style=for-the-badge)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/shuzaei/brainfunc/latest?style=for-the-badge)
 
 # Brainfunc
 
