@@ -1,0 +1,38 @@
+# Add/Subtract 0x10
+a{++++ ++++ ++++ ++++}
+s{---- ---- ---- ----}
+
+# Move 0x10
+r{>>>> >>>> >>>> >>>>}
+l{<<<< <<<< <<<< <<<<}
+
+# Clear cell
+c{(-c)}
+
+# Skip and count until 1
+t{>-(+<m>+t)}
+k{-(+t<m>-)<<}
+
+# Move right
+m{(->+<m)}
+
+# Shift right
+h{<c<m<m<m<m <m<m<m<m <m<m<m<m <m<m<mcr}
+
+# Padding right
+g{>>(-<<hg)}
+
+# Input
+b{,sss(-(-(-(-(-(-(-(-(-(>+<)+)+)+)+)+)+)+)+)+)>(-<b)}
+d{,sss(-(-(-(-(-(-(-(-(-(>-<)+)+)+)+)+)+)+)+)+)>+(-d)}
+i{bd<c}
+
+# Output
+p{aaa.sss}
+o{p>p>p>p> p>p>p>p> p>p>p>p> p>p>p>p>}
+
+# Print new line
+n{c++++ ++++ ++.---- ---- --}
+
+# Main (if bcc version < 1.1 replace _ into 0)
+_{r>>+l<< i k g<< l on}
