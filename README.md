@@ -20,7 +20,6 @@ A programming language like brainf\*ck.
 | `[0-9A-Za-z_]`   | `f_[1-9A-Za-z_]();`                 |
 | `#`             | `//`                               |
 
-- **Notice: developing is WIP, function name _ is to be added, and the main function is to be f__.**
 - Notice: you receive `-1` as `EOF` in the input.
 - Notice: out of bounds array accesses have undefined behavior.
 
