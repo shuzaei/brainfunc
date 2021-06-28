@@ -19,10 +19,11 @@
 
 void interpret(char *src, char *filename) {
     char *ptr, name = '0';
-    int stat = 0, depth = 0, line = 0, col = 0, flags[128] = {};
+    int stat = 0, depth = 0, line = 1, col = 1, flags[128] = {};
 
     for (ptr = src; *ptr; ptr++) {
-        if (('0' <= *ptr && *ptr <= '9') || ('A' <= *ptr && *ptr <= 'Z') || ('a' <= *ptr && *ptr <= 'z') || *ptr == '_') {
+        if (('0' <= *ptr && *ptr <= '9') || ('A' <= *ptr && *ptr <= 'Z') ||
+            ('a' <= *ptr && *ptr <= 'z') || *ptr == '_') {
             if (!(stat & IN_FUNC)) {
                 if (stat & FUNC_NAME_DEFINED) {
                     where(filename);
@@ -41,7 +42,7 @@ void interpret(char *src, char *filename) {
                 printf("f_%c();", *ptr);
             }
         }
-        
+
         else if (*ptr == '{') {
             if (stat & IN_FUNC) {
                 where(filename);
@@ -70,7 +71,7 @@ void interpret(char *src, char *filename) {
             stat = 0;
             printf("}");
         }
-        
+
         else if (strchr("><+-,.()", *ptr) && !(stat & IN_FUNC)) {
             where(filename);
             fprintf(stderr, "Invalid expression outside of a function\n");
