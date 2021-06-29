@@ -16,6 +16,8 @@ deploy:
   provider: releases
   token: $GH_OAUTH_TOKEN
   file: homebrew-package.tar.gz
+  name: "Brainfunc-$TRAVIS_TAG"
+  body: "SHA256 hashsum of homebrew-package.tar.gz: $(cat homebrew-package.tar.gz.sha256sum)"
   cleanup: false
   on:
     tags: true
