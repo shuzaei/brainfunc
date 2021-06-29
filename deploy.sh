@@ -44,7 +44,7 @@ if [ $TEST_UNIT = true ]; then
     alias bc2c="./out/bc2c"
     
     . "./tests/unit-test-all.sh"
-    if [ $? != 0]; then
+    if [ $? != 0 ]; then
         printf "\e[93mSTOPPED\e[0m\n"
         rm "./out/bc2c"
         exit 1
