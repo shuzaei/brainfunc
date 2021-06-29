@@ -34,7 +34,7 @@ if [ $BREW_PACKAGE = true ]; then
         git commit -m "automatic commit by deploy.sh before updating formula"
         git push
 
-        "./utils/homebrew-update.sh" <(printf "Yes")
+        "./utils/homebrew-update.sh" < "./utils/yes"
     fi
 fi
 
