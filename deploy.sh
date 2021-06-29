@@ -1,8 +1,8 @@
 #!/bin/bash
 
-VERSION="1.0.6-8"
+VERSION="1.0.6-9"
 
-BEFORE_COMMIT=false
+BEFORE_COMMIT=true
 TEST_BREW=false
 TEST_LOCAL=true
 BREW_PACKAGE=true
