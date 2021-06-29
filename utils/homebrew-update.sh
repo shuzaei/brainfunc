@@ -27,13 +27,13 @@ done
 
 if [ "$(git branch --contains)" != "* main" ]; then
     printf "\e[91mError:\e[0m Not in branch main\n"
-    exit
+    exit 1
 fi
 
 [[ -z $(git status -s) ]]
 if [ $? != 0 ]; then
     printf "\e[91mError:\e[0m Working tree is not clean\n"
-    exit
+    exit 1
 fi
 
 cp "$root/out/brainfunc.rb" "$root/homebrew-brainfunc/"
