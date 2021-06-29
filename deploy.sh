@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="1.0.6-10"
+VERSION="1.0.6-11"
 
 BEFORE_COMMIT=true
 
@@ -85,7 +85,7 @@ if [ $PUSH_TAG = true ]; then
     git push origin "$VERSION"
 
     if [ $CREATE_RELEASE = true ]; then
-        gh release "$VERSION" "./out/homebrew-package.tar.gz"
+        gh release create "$VERSION" "./out/homebrew-package.tar.gz"
     fi
 fi
 
