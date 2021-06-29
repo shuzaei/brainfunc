@@ -1,0 +1,28 @@
+# Unit test for ()
+
+# Supplementary function
+a{++++ ++++ ++++ ++++}
+s{---- ---- ---- ----}
+
+# Print next cell as integer
+p{>aaa.sss<}
+
+# Increment next cell
+i{>+<}
+# Decrement next cell
+d{>-<}
+
+# Print new line using next cell
+n{>++++ ++++ ++.---- ---- --<}
+
+# Function for test
+f{(i)p(d)}
+
+# Test 0x10
+x{f+f+f+f+ f+f+f+f+ f+f+f+f+ f+f+f+f+}
+
+# Test
+t{xxxx xxxx xxxx xxxx n}
+
+# Main
+_{t}
