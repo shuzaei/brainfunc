@@ -2,7 +2,7 @@
 #
 #   Copyright 2021 shuzaei
 #
-#   Contact: shuzaei@gmail.com
+#   Email: shuzaei@gmail.com
 #   URL: https://github.com/shuzaei/brainfunc/
 #
 
