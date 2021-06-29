@@ -1,3 +1,6 @@
+language:
+- c
+- bash
 matrix:
   include:
     # See https://docs.travis-ci.com/user/osx-ci-environment/#OS-X-Version
@@ -12,9 +15,6 @@ matrix:
     # OS X 10.9
     - os: osx
       osx_image: beta-xcode6.2
-language:
-- c
-- bash
 install:
 - brew update
 - brew install shuzaei/brainfunc/brainfunc
@@ -24,7 +24,7 @@ deploy:
   provider: releases
   api_key: "$GH_OAUTH_TOKEN"
   file: "./out/homebrew-package.tar.gz"
-  skip_cleanup: true
+  cleanup: false
   on:
     tags: true
 env:
