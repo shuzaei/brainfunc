@@ -48,6 +48,8 @@ if [ $TEST_UNIT = true ]; then
     cd tests
     . "./unit-test-all.sh"
 
+    bcc
+
     if [ $? != 0 ]; then
         cd ..
 
