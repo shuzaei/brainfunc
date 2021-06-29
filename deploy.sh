@@ -2,7 +2,7 @@
 
 shopt -s expand_aliases
 
-VERSION="1.0.6-13"
+VERSION="1.0.6-14"
 
 BEFORE_COMMIT=true
 
@@ -17,12 +17,6 @@ AFTER_COMMIT=true
 
 PUSH_TAG=true
 CREATE_RELEASE=true
-
-TEST_LOCAL=false
-TEST_BREW=false
-
-LOCAL_INSTALL=false
-BREW_UPGRADE=true
 
 cd "$(dirname "$0")"
 
@@ -96,28 +90,4 @@ if [ $PUSH_TAG = true ]; then
         gh release create -t "Brainfunc-$VERSION" "$VERSION" "./out/homebrew-package.tar.gz" \
             <(printf "\n$'\x1b\x5b\x42'$'\x1b\x5b\x42'$'\x1b\x5b\x42'\n\n\n")
     fi
-fi
-
-if [ $TEST_LOCAL = true ]; then
-    "./tests/local-install-test.sh"
-    if [ $? != 0]; then
-        printf "\e[93mSTOPPED\e[0m\n"
-        exit 1
-    fi
-fi
-if [ $TEST_BREW = true ]; then
-    "./tests/homebrew-test.sh"
-    if [ $? != 0]; then
-        printf "\e[93mSTOPPED\e[0m\n"
-        exit 1
-    fi
-fi
-
-if [ $LOCAL_INSTALL = true ]; then
-    "./bcc/install.sh"
-fi
-
-if [ $BREW_UPGRADE = true ]; then
-    brew install shuzaei/brainfunc/brainfunc
-    brew upgrade brainfinc
 fi
