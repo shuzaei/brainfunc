@@ -9,7 +9,6 @@ install:
   - brew install shuzaei/brainfunc/brainfunc
   - brew upgrade brainfunc
   - brew install bash
-  - files="./tests/unit-test/*/*.sh"
 script:
   - for file in $(find ./tests/unit-test/ -name *.sh); do $file; done
 before_deploy:
