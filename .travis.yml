@@ -1,17 +1,18 @@
 language:
-  - c
-  - bash
+- c
+- bash
 install:
-  - brew update
-  - brew install shuzaei/brainfunc/brainfunc
-  - brew upgrade brainfunc
-script:
-  files="./tests/**.sh
-  for file in ${files} do $file done
+- brew update
+- brew install shuzaei/brainfunc/brainfunc
+- brew upgrade brainfunc
+script: files="./tests/**.sh for file in ${files} do $file done
 deploy:
   provider: releases
-  api_key: $GH_OAUTH_TOKEN
+  api_key: "$GH_OAUTH_TOKEN"
   file: "./out/homebrew-package.tar.gz"
   skip_cleanup: true
   on:
     tags: true
+env:
+  global:
+    secure: NFnwO9O+kwYNc47fxtKNO4GEOZljqcvUfilSQV8NxUwn0RDuWCZqknhcXOJV03u8aqhUQqZGb9iK0iQtI13qwS3H41YpYpgpFlwWfP69CZUXJEOqOcqXF3FJlomeveNwtJTELOwJLgK5WppH9whrjrtvPe54WnSUbvX8etZioKuLg3riQLp0gY7PsqlXzLnqUIExBFBXJH41VtOl1p/efErQe2w/hfl3jGyDlv8X0CwnWBv3/xSnCefgxbsS7oRhdLbpyQxJsEyl1uKr6ogXmjTuimkDSexMDFccrayKT0f0MYBc+3vw+zpNIlkfzMgz0OViohX+nartiQxSGJ3+yNQg8zwovM0HGYxVKPwssWqxT4L3tx2uxCOwm1wXJPO1N8IUxBMMsA2afdLNRtPkHWbjFUqOzPtC896EZga64Fly9DGnwcfcnjO+o7JAL98AjCgX12CJlhjKYdinTIlnqHjsepK6Heh5sa1TijL0lqGY3xIPPK283vIMH9PKJU/YhWX9CctgaptWVkMAjtNxDRqkA0yvYgXQGVREQrW2Qsx3knTI+FQJbCYPVU3t7jhxnyWtFzuAB3itWumScoWf4rFiZIA83+W7zMeCr70qVXzF27fpIyoOZ+xL5z/xtZvEstHhjVVMaVVW9BLbdqf/GqY5LbbfR96NoPh+mP8Rjso=
