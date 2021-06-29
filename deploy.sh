@@ -2,7 +2,7 @@
 
 shopt -s expand_aliases
 
-VERSION="1.0.6-14"
+VERSION="1.0.7-0"
 
 BEFORE_COMMIT=true
 
@@ -87,7 +87,6 @@ if [ $PUSH_TAG = true ]; then
     git push origin "$VERSION"
 
     if [ $CREATE_RELEASE = true ]; then
-        gh release create -t "Brainfunc-$VERSION" "$VERSION" "./out/homebrew-package.tar.gz" \
-            <(printf "\n$'\x1b\x5b\x42'$'\x1b\x5b\x42'$'\x1b\x5b\x42'\n\n\n")
+        gh release create -t "Brainfunc-$VERSION" "$VERSION" "./out/homebrew-package.tar.gz"
     fi
 fi
