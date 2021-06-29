@@ -10,7 +10,7 @@ script:
   - ./tests/local-install-test.sh
   - ./tests/homebrew-test.sh
 before_deploy:
-  - ./utils/homebrew-package.sh
+  - ./utils/homebrew-package.sh $TRAVIS_TAG
   - cd out/
 deploy:
   provider: releases
