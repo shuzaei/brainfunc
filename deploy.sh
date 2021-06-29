@@ -1,5 +1,7 @@
 #!/bin/bash
 
+shopt -s expand_aliases
+
 VERSION="1.0.6-12"
 
 BEFORE_COMMIT=true
@@ -41,14 +43,11 @@ fi
 if [ $TEST_UNIT = true ]; then
     cc -o "./out/bc2c" "./bcc/bc2c.c"
 
-    shopt -s expand_aliases
     alias bcc='./bcc/bcc.sh'
     alias bc2c='./out/bc2c'
     
     cd tests
     . "./unit-test-all.sh"
-
-    bcc
 
     if [ $? != 0 ]; then
         cd ..
