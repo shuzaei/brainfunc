@@ -16,8 +16,8 @@ AFTER_COMMIT=true
 PUSH_TAG=true
 CREATE_RELEASE=true
 
-TEST_BREW=false
 TEST_LOCAL=false
+TEST_BREW=false
 
 LOCAL_INSTALL=false
 BREW_UPGRADE=true
@@ -44,12 +44,18 @@ if [ $TEST_UNIT = true ]; then
     alias bcc="./bcc/bcc.sh"
     alias bc2c="./out/bc2c"
     
-    "./tests/unit-test-all.sh"
+    cd tests
+    . "./unit-test-all.sh"
+
     if [ $? != 0 ]; then
+        cd ..
+
         printf "\e[93mSTOPPED\e[0m\n"
         rm "./out/bc2c"
         exit 1
     fi
+
+    cd ..
     
     unalias bcc
     unalias bc2c
@@ -90,16 +96,15 @@ if [ $PUSH_TAG = true ]; then
     fi
 fi
 
-if [ $TEST_BREW = true ]; then
-    "./tests/homebrew-test.sh"
+if [ $TEST_LOCAL = true ]; then
+    "./tests/local-install-test.sh"
     if [ $? != 0]; then
         printf "\e[93mSTOPPED\e[0m\n"
         exit 1
     fi
 fi
-
-if [ $TEST_LOCAL = true ]; then
-    "./tests/local-install-test.sh"
+if [ $TEST_BREW = true ]; then
+    "./tests/homebrew-test.sh"
     if [ $? != 0]; then
         printf "\e[93mSTOPPED\e[0m\n"
         exit 1
