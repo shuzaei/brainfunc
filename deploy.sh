@@ -24,13 +24,6 @@ TEST_BREW=false
 LOCAL_INSTALL=false
 BREW_UPGRADE=true
 
-function AUTO_STOP () {
-    if [ $? != 0 ]; then
-        printf "\e[93mSTOPPED\e[0m\n"
-        exit 1
-    fi
-}
-
 cd "$(dirname "$0")"
 
 if [ $PUSH_TAG = true ]; then
@@ -42,9 +35,9 @@ if [ $PUSH_TAG = true ]; then
 fi
 
 if [ $BEFORE_COMMIT = true ]; then
-    git add .; AUTO_STOP
-    git commit -m "automatic commit before deploying by deploy.sh"; AUTO_STOP
-    git push; AUTO_STOP
+    git add .
+    git commit -m "automatic commit before deploying by deploy.sh"
+    git push
 fi
 
 if [ $TEST_UNIT = true ]; then
@@ -75,9 +68,9 @@ if [ $BREW_PACKAGE = true ]; then
     "./utils/homebrew-package.sh" "$VERSION"
 
     if [ $BREW_UPDATE = true ]; then
-        git add "./out"; AUTO_STOP;
-        git commit -m "automatic commit by deploy.sh before updating formula"; AUTO_STOP;
-        git push; AUTO_STOP;
+        git add "./out"
+        git commit -m "automatic commit by deploy.sh before updating formula"
+        git push
 
         "./utils/homebrew-update.sh" < "./utils/yes"
     fi
@@ -90,17 +83,17 @@ if [ $VSCE_PUBLISH = true ]; then
 fi
 
 if [ $AFTER_COMMIT = true ]; then
-    git add .; AUTO_STOP;
-    git commit -m "automatic commit after deploying by deploy.sh"; AUTO_STOP;
-    git push; AUTO_STOP;
+    git add .
+    git commit -m "automatic commit after deploying by deploy.sh"
+    git push
 fi
 
 if [ $PUSH_TAG = true ]; then
-    git tag "$VERSION"; AUTO_STOP;
-    git push origin "$VERSION"; AUTO_STOP;
+    git tag "$VERSION";
+    git push origin "$VERSION";
 
     if [ $CREATE_RELEASE = true ]; then
-        gh release create -t "Brainfunc-$VERSION" "$VERSION" "./out/homebrew-package.tar.gz"; AUTO_STOP;
+        gh release create -t "Brainfunc-$VERSION" "$VERSION" "./out/homebrew-package.tar.gz"
     fi
 fi
 
