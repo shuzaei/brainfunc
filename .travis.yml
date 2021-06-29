@@ -9,11 +9,9 @@ install:
   - brew install shuzaei/brainfunc/brainfunc
   - brew upgrade brainfunc
 script:
-  - files="./tests/**.sh"
-  - for file in ${files};
-  - do
-  -   $file
-  - done
+  - files="./tests/unit-test/**/*.sh"
+  - shopt -s globstar
+  - for file in ${files}; do $file; done
 before_deploy:
   # 配布データの生成
   - ./utils/homebrew-package.sh
