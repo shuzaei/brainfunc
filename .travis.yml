@@ -8,10 +8,10 @@ jobs:
 install:
   - brew install shuzaei/brainfunc/brainfunc
   - brew upgrade brainfunc
-  - files="./tests/unit-test/**/*.sh"
-  - shopt -s globstar
+  - brew install bash
+  - files="./tests/unit-test/*/*.sh"
 script:
-  - for file in ${files}; do $file; done
+  - for file in $(find ./tests/unit-test/ -name *.sh); do $file; done
 before_deploy:
   # 配布データの生成
   - ./utils/homebrew-package.sh
