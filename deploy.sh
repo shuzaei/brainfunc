@@ -1,20 +1,20 @@
 #!/bin/bash
 
-VERSION = "1.0.6-8"
+VERSION="1.0.6-8"
 
-BEFORE_COMMIT = false
-TEST_BREW = false
-TEST_LOCAL = true
-BREW_PACKAGE = true
-BREW_UPDATE = true
-VSCE_PUBLISH = false
-AFTER_COMMIT = false
+BEFORE_COMMIT=false
+TEST_BREW=false
+TEST_LOCAL=true
+BREW_PACKAGE=true
+BREW_UPDATE=true
+VSCE_PUBLISH=false
+AFTER_COMMIT=false
 
 cd "$(dirname "$0")"
 
 if [ $BEFORE_COMMIT = true ]; then
     git add .
-    git commit -m "automatic commit by deploy.sh"
+    git commit -m "automatic commit before deploying by deploy.sh"
     git push
 fi
 
@@ -30,7 +30,11 @@ if [ $BREW_PACKAGE = true ]; then
     "./utils/homebrew-package.sh" "$VERSION"
 
     if [ $BREW_UPDATE = true ]; then
-        "./utils/homebrew-update.sh"
+        git add "./out"
+        git commit -m "automatic commit by deploy.sh before updating formula"
+        git push
+
+        "./utils/homebrew-update.sh" < "Yes"
     fi
 fi
 
@@ -42,6 +46,6 @@ fi
 
 if [ $AFTER_COMMIT = true ]; then
     git add .
-    git commit -m "automatic commit by deploy.sh"
+    git commit -m "automatic commit after deploying by deploy.sh"
     git push
 fi
