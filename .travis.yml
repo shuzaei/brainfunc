@@ -1,7 +1,7 @@
 language:
 - c
 - bash
-matrix:
+jobs:
   include:
     - os: osx
       osx_image: xcode12.5
@@ -10,7 +10,10 @@ install:
   - brew upgrade brainfunc
 script:
   - files="./tests/**.sh"
-  - for file in ${files} do $file done
+  - for file in ${files};
+  - do
+  -   $file
+  - done
 before_deploy:
   # 配布データの生成
   - ./utils/homebrew-package.sh
@@ -21,7 +24,7 @@ before_deploy:
   - git push --quiet https://$GH_OAUTH_TOKEN@github.com/shuzaei/brainfunc.git --tags 2> /dev/null
 deploy:
   provider: releases
-  api_key: $GH_OAUTH_TOKEN
+  token: $GH_OAUTH_TOKEN
   file: out/homebrew-package.tar.gz
   cleanup: false
   on:
