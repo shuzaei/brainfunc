@@ -6,4 +6,4 @@ root="$(dirname "$0")/.."
 "$root/tests/unit-test-all.sh"
 result=$?
 "$root/bcc/uninstall.sh"
-[[ result == 0 ]]
+[[ $result == 0 ]]
