@@ -5,7 +5,7 @@ count_failed=0
 
 root="$(dirname "$0")/.."
 
-files=$(find "$root/tests/unit-test/" -name *.sh)
+files=$(find "$root/tests/unit-test/" -name "*.sh")
 for file in $files
 do
     $file

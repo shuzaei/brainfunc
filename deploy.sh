@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="1.0.6-11"
+VERSION="1.0.6-12"
 
 BEFORE_COMMIT=true
 
@@ -19,6 +19,7 @@ CREATE_RELEASE=true
 TEST_BREW=false
 TEST_LOCAL=false
 
+LOCAL_INSTALL=false
 BREW_UPGRADE=true
 
 cd "$(dirname "$0")"
@@ -85,7 +86,7 @@ if [ $PUSH_TAG = true ]; then
     git push origin "$VERSION"
 
     if [ $CREATE_RELEASE = true ]; then
-        gh release create "$VERSION" "./out/homebrew-package.tar.gz"
+        gh release create -t "Brainfunc-$VERSION" "$VERSION" "./out/homebrew-package.tar.gz"
     fi
 fi
 
@@ -103,6 +104,10 @@ if [ $TEST_LOCAL = true ]; then
         printf "\e[93mSTOPPED\e[0m\n"
         exit 1
     fi
+fi
+
+if [ $LOCAL_INSTALL = true ]; then
+    "./bcc/install.sh"
 fi
 
 if [ $BREW_UPGRADE = true ]; then
