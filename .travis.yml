@@ -1,0 +1,17 @@
+language:
+  - c
+  - bash
+install:
+  - brew update
+  - brew install shuzaei/brainfunc/brainfunc
+  - brew upgrade brainfunc
+script:
+  files="./tests/**.sh
+  for file in ${files} do $file done
+deploy:
+  provider: releases
+  api_key: $GH_OAUTH_TOKEN
+  file: "./out/homebrew-package.tar.gz"
+  skip_cleanup: true
+  on:
+    tags: true
