@@ -1,0 +1,9 @@
+jobs:
+  test:
+    steps:
+      - name: test
+        run: /deploy.sh
+  deploy:
+    steps:
+      - name: deploy
+        run: /deploy.sh

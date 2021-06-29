@@ -8,7 +8,8 @@ TEST_LOCAL=true
 BREW_PACKAGE=true
 BREW_UPDATE=true
 VSCE_PUBLISH=false
-AFTER_COMMIT=false
+AFTER_COMMIT=true
+PUSH_TAG=true
 
 cd "$(dirname "$0")"
 
@@ -48,4 +49,9 @@ if [ $AFTER_COMMIT = true ]; then
     git add .
     git commit -m "automatic commit after deploying by deploy.sh"
     git push
+fi
+
+if [ $PUSH_TAG = true ]; then
+    git tag "$VERSION"
+    git push origin "$VERSION"
 fi
