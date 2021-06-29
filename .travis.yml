@@ -1,6 +1,6 @@
 language:
-- c
-- bash
+  - c
+  - bash
 jobs:
   include:
     - os: osx
@@ -10,7 +10,7 @@ install:
   - brew upgrade brainfunc
   - brew install bash
 script:
-  - for file in $(find ./tests/unit-test/ -name *.sh); do $file; done
+  - ./tests/unit-test-all.sh
 before_deploy:
   # 配布データの生成
   - ./utils/homebrew-package.sh
