@@ -43,6 +43,8 @@ if [ $TEST_UNIT = true ]; then
 
     alias bcc="./bcc/bcc.sh"
     alias bc2c="./out/bc2c"
+
+    bcc
     
     cd tests
     . "./unit-test-all.sh"
