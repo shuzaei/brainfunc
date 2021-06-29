@@ -24,6 +24,13 @@ TEST_BREW=false
 LOCAL_INSTALL=false
 BREW_UPGRADE=true
 
+function AUTO_STOP () {
+    if [ $? != 0 ]; then
+        printf "\e[93mSTOPPED\e[0m\n"
+        exit 1
+    fi
+}
+
 cd "$(dirname "$0")"
 
 if [ $PUSH_TAG = true ]; then
@@ -35,36 +42,27 @@ if [ $PUSH_TAG = true ]; then
 fi
 
 if [ $BEFORE_COMMIT = true ]; then
-    git add .
-    git commit -m "automatic commit before deploying by deploy.sh"
-    git push
+    git add .; AUTO_STOP
+    git commit -m "automatic commit before deploying by deploy.sh"; AUTO_STOP
+    git push; AUTO_STOP
 fi
 
 if [ $TEST_UNIT = true ]; then
-    cc -o "./out/bc2c" "./bcc/bc2c.c"
+    install=false
 
-    function bcc () {
-        './bcc/bcc.sh'
-    }
-    function bc2c () {
-        './out/bc2c'
-    }
+    bcc
+    if [ $? != 0 ]; then
+        "./bcc/install.sh"
+        install=true
+    fi
 
-    cd tests
-    . "./unit-test-all.sh"
+    "./unit-test-all.sh"; AUTO_STOP; echo "a"
 
     if [ $? != 0 ]; then
-        cd ..
-
         printf "\e[93mSTOPPED\e[0m\n"
         rm "./out/bc2c"
         exit 1
     fi
-
-    cd ..
-    
-    unalias bcc
-    unalias bc2c
 
     rm "./out/bc2c"
 fi
