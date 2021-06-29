@@ -4,7 +4,6 @@ id="lang/if"
 in=(
     ""
 )
-
 out=(
     "$(printf "0%255s" | sed "s/ /1/g")\n"
 )

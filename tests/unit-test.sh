@@ -22,4 +22,6 @@ else
     printf "\e[91mFAILED\e[0m\n"
 fi
 
+rm "$root/$id"
+
 [[ $flag == true ]]
