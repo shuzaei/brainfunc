@@ -18,6 +18,7 @@ deploy:
   file: homebrew-package.tar.gz
   name: "Brainfunc-$TRAVIS_TAG"
   cleanup: false
+  overwrite: true
   on:
     tags: true
 env:
