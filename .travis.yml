@@ -8,9 +8,9 @@ jobs:
 install:
   - brew install shuzaei/brainfunc/brainfunc
   - brew upgrade brainfunc
-script:
   - files="./tests/unit-test/**/*.sh"
   - shopt -s globstar
+script:
   - for file in ${files}; do $file; done
 before_deploy:
   # 配布データの生成
