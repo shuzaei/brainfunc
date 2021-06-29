@@ -59,12 +59,16 @@ if [ $TEST_UNIT = true ]; then
     "./tests/unit-test-all.sh"
 
     if [ $? != 0 ]; then
+        if [ install = true ]; then
+            "./bcc/uninstall.sh"
+        fi
         printf "\e[93mSTOPPED\e[0m\n"
-        rm "./out/bc2c"
         exit 1
     fi
 
-    rm "./out/bc2c"
+    if [ install = true ]; then
+        "./bcc/uninstall.sh"
+    fi
 fi
 
 if [ $BREW_PACKAGE = true ]; then
