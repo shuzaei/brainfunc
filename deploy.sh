@@ -41,10 +41,8 @@ fi
 if [ $TEST_UNIT = true ]; then
     cc -o "./out/bc2c" "./bcc/bc2c.c"
 
-    alias bcc="./bcc/bcc.sh"
-    alias bc2c="./out/bc2c"
-
-    bcc
+    alias bcc='./bcc/bcc.sh'
+    alias bc2c='./out/bc2c'
     
     cd tests
     . "./unit-test-all.sh"
