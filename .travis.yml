@@ -11,6 +11,8 @@ script:
   - ./tests/homebrew-test.sh
 before_deploy:
   - ./utils/homebrew-package.sh
+  - echo $TRAVIS_BUILD_NUMBER
+  - echo $GIT_TAG
   - git config --global user.name "Travis CI (shuzaei)"
   - git config --global user.email "shuzaei@travis-ci.com"
   - git tag -a -m "Commit from Travis CI for build $TRAVIS_BUILD_NUMBER" $GIT_TAG
