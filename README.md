@@ -1,6 +1,5 @@
 ![Latest GitHub release](https://img.shields.io/github/release/shuzaei/brainfunc?style=for-the-badge)
 ![GitHub commits since latest release](https://img.shields.io/github/commits-since/shuzaei/brainfunc/latest?style=for-the-badge)
-![Travis (.com)](https://img.shields.io/travis/com/shuzaei/brainfunc?style=for-the-badge)
 
 # Brainfunc
 A programming language like brainf\*ck.

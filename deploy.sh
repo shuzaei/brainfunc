@@ -1,8 +1,6 @@
 #!/bin/bash
 
-shopt -s expand_aliases
-
-VERSION="1.0.7-0"
+VERSION="1.0.7-1"
 
 BEFORE_COMMIT=true
 
