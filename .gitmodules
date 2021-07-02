@@ -1,0 +1,4 @@
+[submodule "homebrew-brainfunc"]
+	path = homebrew-brainfunc
+	url = https://www.github.com/shuzaei/homebrew-brainfunc.git
+	branch = main
