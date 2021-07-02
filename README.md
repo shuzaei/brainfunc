@@ -26,7 +26,7 @@ A programming language like brainf\*ck.
 # Brainfunc visualizer
 
 A visualizer of Brainfunc.
-You can find it [here](https://shuzaei.github.io/shuzaei/brainfunc/visualizer).
+You can find it [here](https://shuzaei.github.io/shuzaei/brainfunc/visualizer/).
 
 - `if (ptr == 100) ptr = 0;`
 - `if (ptr == -1) ptr = 99;`
@@ -34,6 +34,7 @@ You can find it [here](https://shuzaei.github.io/shuzaei/brainfunc/visualizer).
 
 # BCC
 A compiler of Brainfunc.
+[Here](https://shuzaei.github.io/shuzaei/homebrew-brainfunc/) is a repository for homebrew.
 
 ## Installing BCC
 Execute the command below.
