@@ -23,6 +23,15 @@ A programming language like brainf\*ck.
 - Notice: you receive `-1` as `EOF` in the input.
 - Notice: out of bounds array accesses have undefined behavior.
 
+# Brainfunc visualizer
+
+A visualizer of Brainfunc.
+You can find it [here](https://shuzaei.github.io/shuzaei/brainfunc/visualizer).
+
+- `if (ptr == 100) ptr = 0;`
+- `if (ptr == -1) ptr = 99;`
+- It conforms to [language specifications](https://www.github.com/shuzaei/brainfunc/blob/main/README.md#language-specifications).
+
 # BCC
 A compiler of Brainfunc.
 
