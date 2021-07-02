@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brainfunc visualizer</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="lib/codemirror.css">
+    <link rel="stylesheet" href="lib/codemirror-github-light-theme.css">
+    <script src="lib/codemirror.js"></script>
+    <script src="mode/brainfunc/brainfunc.js"></script>
+
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                Brainfunc visualizer
+            </a>
+        </div>
+    </nav>
+    <div class="container p-3">
+        <div class="container h4">
+            Cells
+        </div>
+        <div class="container">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr id="char-row"></tr>
+                        <tr id="num-row"></tr>
+                    </tbody>
+                </table>
+                <script>
+                    initTable();
+                </script>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="container p-3">
+        <div class="container h4">
+            Code
+        </div>
+        <div class="container">
+            <textarea id="num" name="num" onChange="test()"></textarea>
+            <script>
+                var editor = CodeMirror.fromTextArea(document.getElementById("num"), {
+                    lineNumbers: true,
+                    mode: "text/x-brainfunc",
+                    theme: "github-light"
+                });
+            </script>
+        </div>
+    </div>
+    <div class="container">
+        <div id="box"></div>
+    </div>
+</body>
+
+</html>

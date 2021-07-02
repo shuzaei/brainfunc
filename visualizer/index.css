@@ -1,0 +1,39 @@
+.char-square {
+    background: #fff;
+/*  border: 1px solid #999;  */
+    float: left;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 48px;
+    height: 48px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 48px;
+    max-height: 48px;
+    min-height: 48px;
+    max-width: 48px;
+    min-width: 48px;
+}
+.num-square {
+    background: #fff;
+/*  border: 1px solid #999;  */
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 48px;
+    height: 48px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 48px;
+    max-height: 48px;
+    min-height: 48px;
+    max-width: 48px;
+    min-width: 48px;
+}
+th{
+    padding: 0px 0px;
+}

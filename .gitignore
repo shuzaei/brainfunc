@@ -1,1 +1,3 @@
-bc2c
+**/bc2c
+**/node_modules/*
+**/.vscode/*
