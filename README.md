@@ -26,7 +26,7 @@ A programming language like brainf\*ck.
 # Brainfunc visualizer
 
 A visualizer of Brainfunc.
-You can find it [here](https://shuzaei.github.io/shuzaei/brainfunc/visualizer/).
+You can find it [here](https://shuzaei.github.io/brainfunc/visualizer/).
 
 - `if (ptr == 100) ptr = 0;`
 - `if (ptr == -1) ptr = 99;`
