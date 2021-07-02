@@ -34,7 +34,6 @@ You can find it [here](https://shuzaei.github.io/brainfunc/visualizer/).
 
 - `if (ptr == 100) ptr = 0;`
 - `if (ptr == -1) ptr = 99;`
-- It conforms to [language specifications](https://www.github.com/shuzaei/brainfunc/blob/main/README.md#language-specifications).
 
 # BCC
 A compiler of Brainfunc.
