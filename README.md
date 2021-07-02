@@ -34,7 +34,7 @@ You can find it [here](https://shuzaei.github.io/shuzaei/brainfunc/visualizer/).
 
 # BCC
 A compiler of Brainfunc.
-[Here](https://shuzaei.github.io/shuzaei/homebrew-brainfunc/) is a repository for homebrew.
+[Here](https://www.github.com/shuzaei/homebrew-brainfunc/) is a repository for homebrew.
 
 ## Installing BCC
 Execute the command below.
