@@ -30,6 +30,8 @@ You can find it [here](https://shuzaei.github.io/brainfunc/visualizer/).
 
 **Attention: Development is now in progress.**
 
+## Special specifications
+
 - `if (ptr == 100) ptr = 0;`
 - `if (ptr == -1) ptr = 99;`
 - It conforms to [language specifications](https://www.github.com/shuzaei/brainfunc/blob/main/README.md#language-specifications).
