@@ -41,6 +41,7 @@ cp "$root/out/brainfunc.rb" "$root/homebrew-brainfunc/"
 git submodule foreach git add .
 git submodule foreach git commit -m "Update formula from parent repo shuzaei/brainfunc (automatic)"
 git submodule foreach git push
+git submodule update --remote --merge
 git add "$root/homebrew-brainfunc/"
 git commit -m "Update formula (automatic)"
 git push --recurse-submodules=check
