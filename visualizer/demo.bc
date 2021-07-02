@@ -1,25 +1,26 @@
-# add 0x10
-A { ++++ ++++ ++++ ++++ }
+A {
+                        ++++ ++++ ++++ ++++      # add    0x10
+}
 
 _ {
-    AAAA AAAA AA ++++ ++++ + .> # (c)
+    AAAA AAAA AA        ++++ ++++ +         .>   # (c)  = 0xA9
 
-    AA .>                       # SP
+    AA                                      .>   # SP   = 0x20
 
-    AAA ++ .>                   # 2
-    AAA .>                      # 0
-    AAA ++ .>                   # 2
-    AAA + .>                    # 1
+    AAA                 ++                  .>   # 2    = 0x32
+    AAA                                     .>   # 0    = 0x30
+    AAA                 ++                  .>   # 2    = 0x32
+    AAA                 +                   .>   # 1    = 0x31
 
-    AA .>                       # SP
+    AA                                      .>   # SP   = 0x20
 
-    AAAA AAA +++ .>             # s
-    AAAA AA ++++ ++++ .>        # h
-    AAAA AAA ++++ + .>          # u
-    AAAA AAA ++++ ++++ ++ .>    # z
-    AAAA AA + .>                # a
-    AAAA AA ++++ + .>           # e
-    AAAA AA ++++ ++++ + .>      # i
+    AAAA AAA            +++                 .>   # s    = 0x73
+    AAAA AA             ++++ ++++           .>   # h    = 0x68
+    AAAA AAA            ++++ +              .>   # u    = 0x75
+    AAAA AAA            ++++ ++++ ++        .>   # z    = 0x7A
+    AAAA AA             +                   .>   # a    = 0x61
+    AAAA AA             ++++ +              .>   # e    = 0x65
+    AAAA AA             ++++ ++++ +         .>   # i    = 0x69
     
-    ++++ ++++ ++ .>             # LF
+                        ++++ ++++ ++        .>   # LF   = 0x0A
 }
