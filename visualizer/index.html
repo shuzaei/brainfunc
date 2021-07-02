@@ -27,73 +27,6 @@
     </nav>
     <div class="container p-3">
         <div class="container h4">
-            Cells
-        </div>
-        <div class="container">
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <tbody>
-                        <tr id="char-row"></tr>
-                        <tr id="num-row"></tr>
-                    </tbody>
-                </table>
-                <script>
-                    initTable();
-                </script>
-            </div>
-        </div>
-    </div>
-    </div>
-    <div class="container p-3">
-        <div class="row">
-            <div class="col p-0">
-                <div class="container h4">
-                    Input
-                </div>
-                <div class="container">
-                    <textarea id="input" onChange="test()"></textarea>
-                    <script>
-                        var input = CodeMirror.fromTextArea(document.getElementById("input"), {
-                            mode: "text/x-brainfunc",
-                            theme: "github-light",
-                        });
-                    </script>
-                </div>
-            </div>
-            <div class="col p-0">
-                <div class="container h4">
-                    Output
-                </div>
-                <div class="container">
-                    <textarea id="output" readonly></textarea>
-                    <script>
-                        var output = CodeMirror.fromTextArea(document.getElementById("output"), {
-                            mode: "text/plain",
-                            theme: "github-light",
-                            readOnly: true
-                        });
-                    </script>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container p-3">
-        <div class="container h4">
-            Code
-        </div>
-        <div class="container">
-            <textarea id="editor" onChange="test()"></textarea>
-            <script>
-                var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
-                    lineNumbers: true,
-                    mode: "text/x-brainfunc",
-                    theme: "github-light"
-                });
-            </script>
-        </div>
-    </div>
-    <div class="container p-3">
-        <div class="container h4">
             Specifications
         </div>
         <div class="container">
@@ -108,8 +41,119 @@
             </ul>
         </div>
     </div>
-    <div class="container">
+    <div class="container p-3">
+        <div class="container h4">
+            Cells
+        </div>
+        <div class="container">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr id="char-row"></tr>
+                        <tr id="num-row"></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container p-3">
+        <div class="container h4">
+            Controller
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col p-0">
+                    <div class="container">
+                        <button type="button" class="btn btn-primary" onClick="startStop()">Start / Stop</button>
+                        <button type="button" class="btn btn-primary" onClick="prev()">Prev</button>
+                        <button type="button" class="btn btn-primary" onClick="next()">Next</button>
+                        <button type="button" class="btn btn-danger" onClick="reset()">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="container p-3">
+        <div class="row">
+            <div class="col p-0">
+                <div class="container h4">
+                    Input
+                </div>
+                <div class="container" style="min-width: 100%;">
+                    <textarea id="input"></textarea>
+                    <script>
+                        var inputArea = CodeMirror.fromTextArea(input, {
+                            mode: "text/plain",
+                            theme: "github-light",
+                        });
+                        inputArea.on("change", function (cm, change) {
+                            reset();
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="col p-0">
+                <div class="container h4">
+                    Output
+                </div>
+                <div class="container">
+                    <textarea id="output" readonly></textarea>
+                    <script>
+                        var outputArea = CodeMirror.fromTextArea(output, {
+                            mode: "text/plain",
+                            theme: "github-light",
+                            readOnly: true
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container p-3">
+        <div class="container h4">
+            Code
+        </div>
+        <div class="container">
+            <textarea id="code">
+# add 0x10
+A { ++++ ++++ ++++ ++++ }
 
+_ {
+    AAAA AAAA AA ++++ ++++ + .> # (c)
+
+    AA .>                       # SP
+
+    AAA ++ .>                   # 2
+    AAA .>                      # 0
+    AAA ++ .>                   # 2
+    AAA + .>                    # 1
+
+    AA .>                       # SP
+
+    AAAA AAA +++ .>             # s
+    AAAA AA ++++ ++++ .>        # h
+    AAAA AAA ++++ + .>          # u
+    AAAA AAA ++++ ++++ ++ .>    # z
+    AAAA AA + .>                # a
+    AAAA AA ++++ + .>           # e
+    AAAA AA ++++ ++++ + .>      # i
+    
+    ++++ ++++ ++ .>             # LF
+}
+</textarea>
+            <script>
+                var codeArea = CodeMirror.fromTextArea(document.getElementById("code"), {
+                    lineNumbers: true,
+                    mode: "text/x-brainfunc",
+                    theme: "github-light",
+                });
+                codeArea.setSize("100%", "100%");
+                codeArea.on("change", function (cm, change) {
+                    reset();
+                });
+            </script>
+        </div>
     </div>
 </body>
 <footer class="footer">

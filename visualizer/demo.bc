@@ -1,0 +1,25 @@
+# add 0x10
+A { ++++ ++++ ++++ ++++ }
+
+_ {
+    AAAA AAAA AA ++++ ++++ + .> # (c)
+
+    AA .>                       # SP
+
+    AAA ++ .>                   # 2
+    AAA .>                      # 0
+    AAA ++ .>                   # 2
+    AAA + .>                    # 1
+
+    AA .>                       # SP
+
+    AAAA AAA +++ .>             # s
+    AAAA AA ++++ ++++ .>        # h
+    AAAA AAA ++++ + .>          # u
+    AAAA AAA ++++ ++++ ++ .>    # z
+    AAAA AA + .>                # a
+    AAAA AA ++++ + .>           # e
+    AAAA AA ++++ ++++ + .>      # i
+    
+    ++++ ++++ ++ .>             # LF
+}

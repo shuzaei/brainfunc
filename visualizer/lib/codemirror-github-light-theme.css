@@ -24,10 +24,10 @@
 
 .cm-s-github-light .CodeMirror-linenumber {
   color: #959da5;
-  padding: 0 20px 0 40px; }
+  padding: 0 16px 0 32px; }
 
 .cm-s-github-light .CodeMirror-cursor {
-  border-left: 2px solid #24292e; }
+  border-left: 1px solid #24292e; }
 
 .cm-s-github-light div.CodeMirror-selected,
 .cm-s-github-light .CodeMirror-line::selection,
@@ -48,7 +48,7 @@
 .cm-s-github-light .CodeMirror-lines {
   font-family: "Noto Sans Mono CJK JP", "Source Han Code JP",
     "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 20px;
+  font-size: 16px;
   background: /*#fff*/ #f8f9fa;
   line-height: 1.5; }
 

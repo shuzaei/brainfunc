@@ -1,19 +1,18 @@
 function convertControlCharactor(num) {
-    if (num < 0x20) {
-        return 0x2400 + parseInt(num);
-    } else if (num == 0x7F) {
+    trueNum = parseInt(num);
+    if (trueNum >= 0 && trueNum < 0x20) {
+        return 0x2400 + trueNum;
+    } else if (trueNum == 0x7F) {
         return 0x2421;
-    } else if (num < 0x80) {
-        return num;
+    } else if (trueNum >= 0){
+        return trueNum;
+    } else {
+        return 0x0100 + trueNum;
     }
 }
 
 function intToChar(num) {
     return String.fromCodePoint(convertControlCharactor(num));
-}
-
-function test() {
-    box.innerHTML = intToChar(num.value);
 }
 
 function initTable() {
@@ -36,9 +35,149 @@ function initTable() {
 
         var numBox = document.createElement("div");
         numBox.setAttribute("class", "num-square");
+        numBox.setAttribute("id", "num-square-" + i);
         numBox.innerHTML = "0";
         numCol.appendChild(numBox);
 
         numRow.appendChild(numCol);
     }
+
+    charRow.cells[0].childNodes[0].setAttribute("class", "char-square-on");
+    numRow.cells[0].childNodes[0].setAttribute("class", "num-square-on");
+}
+
+function inc() {
+    var charCell = document.getElementById("char-row").cells[cellPos].childNodes[0];
+    var numCell = document.getElementById("num-row").cells[cellPos].childNodes[0];
+
+    numCell.innerHTML = (parseInt(numCell.innerHTML) + 1);
+    if (numCell.innerHTML === "128") numCell.innerHTML = "-128";
+
+    charCell.innerHTML = intToChar(parseInt(numCell.innerHTML));
+}
+
+function dec() {
+    var charCell = document.getElementById("char-row").cells[cellPos].childNodes[0];
+    var numCell = document.getElementById("num-row").cells[cellPos].childNodes[0];
+
+    numCell.innerHTML = (parseInt(numCell.innerHTML) - 1);
+    if (numCell.innerHTML === "-129") numCell.innerHTML = "127";
+
+    charCell.innerHTML = intToChar(parseInt(numCell.innerHTML));
+}
+
+function go() {
+    var charRow = document.getElementById("char-row");
+    var numRow = document.getElementById("num-row");
+
+    charRow.cells[cellPos].childNodes[0].setAttribute("class", "char-square");
+    numRow.cells[cellPos].childNodes[0].setAttribute("class", "num-square");
+
+    cellPos++;
+    if (cellPos == 100) cellPos = 0;
+
+    charRow.cells[cellPos].childNodes[0].setAttribute("class", "char-square-on");
+    numRow.cells[cellPos].childNodes[0].setAttribute("class", "num-square-on");
+}
+
+function back() {
+    var charRow = document.getElementById("char-row");
+    var numRow = document.getElementById("num-row");
+
+    charRow.cells[cellPos].childNodes[0].setAttribute("class", "char-square");
+    numRow.cells[cellPos].childNodes[0].setAttribute("class", "num-square");
+
+    cellPos--;
+    if (cellPos == -1) cellPos = 99;
+
+    charRow.cells[cellPos].childNodes[0].setAttribute("class", "char-square-on");
+    numRow.cells[cellPos].childNodes[0].setAttribute("class", "num-square-on");
+}
+
+function get() {
+    var charCell = document.getElementById("char-row").cells[cellPos].childNodes[0];
+    var numCell = document.getElementById("num-row").cells[cellPos].childNodes[0];
+
+    if (inputPos >= codeEncoded.length) {
+        numCell.innerHTML = "26";
+    }
+    numCell.innerHTML = codeEncoded[inputPos];
+    inputPos++;
+
+    charCell.innerHTML = intToChar(parseInt(numCell.innerHTML));
+}
+
+function put() {
+    var charCell = document.getElementById("char-row").cells[cellPos].childNodes[0];
+    outputArea.save();
+    outputArea.getDoc().setValue(output.value + charCell.innerHTML);
+}
+
+function startStop() {
+    if (!checkOk) return;
+}
+
+function prev() {
+    if (!checkOk) return;
+}
+
+function next() {
+    go();
+    if (!checkOk) return;
+}
+
+function checkCode(code) {
+    return "Error: ";
+}
+
+function reset() {
+    var charRow = document.getElementById("char-row");
+    var numRow = document.getElementById("num-row");
+
+    charRow.cells[cellPos].childNodes[0].setAttribute("class", "char-square");
+    numRow.cells[cellPos].childNodes[0].setAttribute("class", "num-square");
+
+    checkOk = false;
+    codePos = 0;
+    inputPos = 0;
+    cellPos = 0;
+
+    charRow.cells[cellPos].childNodes[0].setAttribute("class", "char-square-on");
+    numRow.cells[cellPos].childNodes[0].setAttribute("class", "num-square-on");
+
+    codeArea.save();
+    codeEncoded = (new TextEncoder).encode(code.value);
+
+    inputArea.save();
+    inputEncoded = (new TextEncoder).encode(input.value);
+
+    functionStack = [{
+        "function" : "_",
+        "returnPos" : -1
+    }]
+
+    functionPos = Array(128);
+
+    var result = checkCode(codeEncoded);
+    if (result === "OK") {
+        checkOk = true;
+    } else {
+        outputArea.getDoc().setValue(result);
+    }
+}
+
+var checkOk = false;
+var codePos = 0;
+var inputPos = 0;
+var cellPos = 0;
+var codeEncoded = [];
+var inputEncoded = [];
+var functionStack = [{
+    "function" : "_",
+    "returnPos" : -1
+}];
+var functionPos = Array(128);
+
+window.onload = function() {
+    initTable();
 }
