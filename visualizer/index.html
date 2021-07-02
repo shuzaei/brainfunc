@@ -45,13 +45,46 @@
     </div>
     </div>
     <div class="container p-3">
+        <div class="row">
+            <div class="col p-0">
+                <div class="container h4">
+                    Input
+                </div>
+                <div class="container">
+                    <textarea id="input" onChange="test()"></textarea>
+                    <script>
+                        var input = CodeMirror.fromTextArea(document.getElementById("input"), {
+                            mode: "text/x-brainfunc",
+                            theme: "github-light",
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="col p-0">
+                <div class="container h4">
+                    Output
+                </div>
+                <div class="container">
+                    <textarea id="output" readonly></textarea>
+                    <script>
+                        var output = CodeMirror.fromTextArea(document.getElementById("output"), {
+                            mode: "text/plain",
+                            theme: "github-light",
+                            readOnly: true
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container p-3">
         <div class="container h4">
             Code
         </div>
         <div class="container">
-            <textarea id="num" name="num" onChange="test()"></textarea>
+            <textarea id="editor" onChange="test()"></textarea>
             <script>
-                var editor = CodeMirror.fromTextArea(document.getElementById("num"), {
+                var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
                     lineNumbers: true,
                     mode: "text/x-brainfunc",
                     theme: "github-light"
@@ -59,9 +92,30 @@
             </script>
         </div>
     </div>
+    <div class="container p-3">
+        <div class="container h4">
+            Specifications
+        </div>
+        <div class="container">
+            <ul>
+                <li><code>if (ptr == 100) ptr = 0;</code></li>
+                <li><code>if (ptr == -1) ptr = 99;</code></li>
+                <li>
+                    It conforms to <a
+                        href="https://www.github.com/shuzaei/brainfunc/blob/main/README.md#language-specifications">language
+                        specifications.</a>
+                </li>
+            </ul>
+        </div>
+    </div>
     <div class="container">
-        <div id="box"></div>
+
     </div>
 </body>
+<footer class="footer">
+    <div class="container p-3">
+        <p class="text-muted">© 2021 shuzaei</p>
+    </div>
+</footer>
 
 </html>

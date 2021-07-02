@@ -9,11 +9,11 @@
  * Licensed under MIT (https://github.com/primer/github-syntax-theme-generator/blob/master/LICENSE)
  */
 .cm-s-github-light.CodeMirror {
-  background: #fff;
+  background: /*#fff*/ #f8f9fa;
   color: #24292e; }
 
 .cm-s-github-light .CodeMirror-gutters {
-  background: #fff;
+  background: /*#fff*/ #f8f9fa;
   border-right-width: 0; }
 
 .cm-s-github-light .CodeMirror-guttermarker {
@@ -24,10 +24,10 @@
 
 .cm-s-github-light .CodeMirror-linenumber {
   color: #959da5;
-  padding: 0 16px 0 16px; }
+  padding: 0 20px 0 40px; }
 
 .cm-s-github-light .CodeMirror-cursor {
-  border-left: 1px solid #24292e; }
+  border-left: 2px solid #24292e; }
 
 .cm-s-github-light div.CodeMirror-selected,
 .cm-s-github-light .CodeMirror-line::selection,
@@ -49,7 +49,7 @@
   font-family: "Noto Sans Mono CJK JP", "Source Han Code JP",
     "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 20px;
-  background: #fff;
+  background: /*#fff*/ #f8f9fa;
   line-height: 1.5; }
 
 .cm-s-github-light .cm-comment {
