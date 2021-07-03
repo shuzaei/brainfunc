@@ -250,19 +250,23 @@ function next() {
 
     setCodePos(codePos + 1);
 
-    var jump = codePos;
-    while (jump < codeEncoded.length && (codeEncoded[jump] === 0x20 || codeEncoded[jump] === 0x0D ||
-        codeEncoded[jump] === 0x0A || codeEncoded[jump] === 0x09 || codeEncoded[jump] === 0x0C || codeEncoded[jump] == 0x23)) {
-        if (codeEncoded[jump] == 0x23) {
-            while (jump < codeEncoded.length && codeEncoded[jump] != 0x0A) {
-                jump++;
+    if (codePos < codeEncoded.length) {
+        var jump = codePos;
+        while (jump < codeEncoded.length && (codeEncoded[jump] === 0x20 || codeEncoded[jump] === 0x0D ||
+            codeEncoded[jump] === 0x0A || codeEncoded[jump] === 0x09 || codeEncoded[jump] === 0x0C || codeEncoded[jump] == 0x23)) {
+            if (codeEncoded[jump] == 0x23) {
+                while (jump < codeEncoded.length && codeEncoded[jump] != 0x0A) {
+                    jump++;
+                }
             }
+            jump++;
         }
-        jump++;
-    }
-    setCodePos(jump);
+        setCodePos(jump);
 
-    showCursor();
+        if (codePos < codeEncoded.length) {
+            showCursor();
+        }
+    }
 }
 
 function where(line, col) {
