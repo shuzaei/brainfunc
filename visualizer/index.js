@@ -15,6 +15,19 @@ function intToChar(num) {
     return String.fromCodePoint(convertControlCharactor(num));
 }
 
+function convertIntToChar(num) {
+    trueNum = parseInt(num);
+    if (trueNum >= 0){
+        return trueNum;
+    } else {
+        return 0x0100 + trueNum;
+    }
+}
+
+function intToCharPrint(num) {
+    return String.fromCodePoint(convertIntToChar(num));
+}
+
 function initTable() {
     var charRow = document.getElementById("char-row");
     var numRow = document.getElementById("num-row");
@@ -98,19 +111,19 @@ function get() {
     var charCell = document.getElementById("char-row").cells[cellPos].childNodes[0];
     var numCell = document.getElementById("num-row").cells[cellPos].childNodes[0];
 
-    if (inputPos >= codeEncoded.length) {
+    if (inputPos >= inputEncoded.length) {
         numCell.innerHTML = "26";
     }
-    numCell.innerHTML = codeEncoded[inputPos];
+    numCell.innerHTML = inputEncoded[inputPos];
     inputPos++;
 
     charCell.innerHTML = intToChar(parseInt(numCell.innerHTML));
 }
 
 function put() {
-    var charCell = document.getElementById("char-row").cells[cellPos].childNodes[0];
+    var intCell = document.getElementById("num-row").cells[cellPos].childNodes[0];
     outputArea.save();
-    outputArea.getDoc().setValue(output.value + charCell.innerHTML);
+    outputArea.getDoc().setValue(output.value + intToCharPrint(intCell.innerHTML));
 }
 
 function startStop() {
@@ -125,9 +138,15 @@ function startStop() {
 }
 
 function resetInterval() {
+    if (!checkOk || !isRunning) return;
     clearTimeout(timer);
     timer = setInterval(next, delay.value * 1000);
     isRunning = true;
+}
+
+function pushPrev() {
+    if (!checkOk || isRunning) return;
+    prev();
 }
 
 function prev() {
@@ -138,9 +157,13 @@ function setCodePos(num) {
     codePos = num;
 }
 
+function pushNext() {
+    if (!checkOk || isRunning) return;
+    next();
+}
+
 function next() {
-    if (!checkOk || isRunning || codePos == codeEncoded.length) return;
-    console.log(codePos, codeEncoded[codePos]);
+    if (!checkOk || codePos == codeEncoded.length) return;
 
     var jump = codePos;
     while (jump < codeEncoded.length && (codeEncoded[jump] === 0x20 || codeEncoded[jump] === 0x0D ||
@@ -341,6 +364,7 @@ function reset() {
     if (result === "Ok") {
         checkOk = true;
         codePos = functionPos[0x5F];
+        outputArea.getDoc().setValue("");
     } else {
         outputArea.getDoc().setValue(result);
     }
