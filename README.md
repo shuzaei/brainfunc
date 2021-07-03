@@ -10,15 +10,15 @@ A programming language like brainf\*ck.
 - Environment: `char buf[1000000],*ptr=buf;int main(){f__();}`
 - Commands:
 
-| Command         | C equivalent                       |
-| :-------------- | :--------------------------------- |
-| `[0-9A-Za-z_]{}` | `void f_[1-9A-Za-z_](void){}`       |
-| `>` `<`         | `ptr++;` `ptr--;`                  |
-| `+` `-`         | `(*ptr)++;` `(*ptr)--;`            |
-| `,` `.`         | `*ptr=getchar();` `putchar(*ptr);` |
-| `()`            | `if(*ptr){}`                       |
-| `[0-9A-Za-z_]`   | `f_[1-9A-Za-z_]();`                 |
-| `#`             | `//`                               |
+| Command          | C equivalent                       |
+| :--------------- | :--------------------------------- |
+| `[0-9A-Za-z_]{}` | `void f_[1-9A-Za-z_](void){}`      |
+| `>` `<`          | `ptr++;` `ptr--;`                  |
+| `+` `-`          | `(*ptr)++;` `(*ptr)--;`            |
+| `,` `.`          | `*ptr=getchar();` `putchar(*ptr);` |
+| `()`             | `if(*ptr){}`                       |
+| `[0-9A-Za-z_]`   | `f_[1-9A-Za-z_]();`                |
+| `#`              | `//`                               |
 
 - Notice: you receive `-1` as `EOF` in the input.
 - Notice: out of bounds array accesses have undefined behavior.
@@ -42,12 +42,12 @@ A compiler of Brainfunc.
 ## Installing BCC
 Execute the command below.
 
-```sh
+```
 brew install shuzaei/brainfunc/brainfunc
 ```
 
 ## Using BCC
-```sh
+```
 bcc <filename> [output filename]
 ```
 
@@ -63,7 +63,7 @@ Install from [here](https://marketplace.visualstudio.com/items?itemName=shuzaei.
 
 # Copyright and license (summary)
 
-```LICENSE
+```
 
     Copyright 2021 shuzaei
 
