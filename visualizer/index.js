@@ -289,7 +289,7 @@ function where(line, col) {
 
 function checkCode(codeEncoded) {
     var functionName;
-    var inFunc = false, defined = false, depth = 0, line = 1, col = 1, flags = {};
+    var inFunc = false, defined = false, depth = 0, line = 1, col = 1, flags = {}, use = {};
 
     for (i = 0; i < codeEncoded.length; i++) {
         if ((0x30 <= codeEncoded[i] && codeEncoded[i] <= 0x39) ||
@@ -306,6 +306,8 @@ function checkCode(codeEncoded) {
                 flags[codeEncoded[i]] = true;
                 functionName = codeEncoded[i];
                 defined = true;
+            } else {
+                use[codeEncoded[i]] = true;
             }
         }
 
@@ -373,6 +375,12 @@ function checkCode(codeEncoded) {
 
     if (inFunc || defined) {
         return where(line, col) + "Error: Extra expression\n";
+    }
+
+    for (i = 0; i < 0x100; i++) {
+        if (use[i] && !flags[i]) {
+            return where(line, col) + "Error: Missing function " + String.fromCodePoint(i) + "\n";
+        }
     }
 
     return "Ok";
