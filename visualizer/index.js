@@ -118,6 +118,7 @@ function startStop() {
 }
 
 function prev() {
+    inc();
     if (!checkOk) return;
 }
 
@@ -127,7 +128,7 @@ function next() {
 }
 
 function checkCode(code) {
-    return "Error: ";
+    return "Ok";
 }
 
 function reset() {
@@ -138,6 +139,7 @@ function reset() {
     numRow.cells[cellPos].childNodes[0].setAttribute("class", "num-square");
 
     checkOk = false;
+    isRunning = false;
     codePos = 0;
     inputPos = 0;
     cellPos = 0;
@@ -151,15 +153,17 @@ function reset() {
     inputArea.save();
     inputEncoded = (new TextEncoder).encode(input.value);
 
-    functionStack = [{
-        "function" : "_",
-        "returnPos" : -1
-    }]
+    returnPos = [];
 
     functionPos = Array(128);
+    
+    for (let i = 0; i < 100; i++) {
+        charRow.cells[i].childNodes[0].innerHTML = intToChar("0");
+        numRow.cells[i].childNodes[0].innerHTML = "0";
+    }
 
     var result = checkCode(codeEncoded);
-    if (result === "OK") {
+    if (result === "Ok") {
         checkOk = true;
     } else {
         outputArea.getDoc().setValue(result);
@@ -167,15 +171,13 @@ function reset() {
 }
 
 var checkOk = false;
+var isRunning = false;
 var codePos = 0;
 var inputPos = 0;
 var cellPos = 0;
 var codeEncoded = [];
 var inputEncoded = [];
-var functionStack = [{
-    "function" : "_",
-    "returnPos" : -1
-}];
+var returnPos = [];
 var functionPos = Array(128);
 
 window.onload = function() {

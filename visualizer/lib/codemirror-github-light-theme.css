@@ -24,7 +24,7 @@
 
 .cm-s-github-light .CodeMirror-linenumber {
   color: #959da5;
-  padding: 0 16px 0 32px; }
+  padding: 0 12px 0 24px; }
 
 .cm-s-github-light .CodeMirror-cursor {
   border-left: 1px solid #24292e; }
@@ -48,7 +48,7 @@
 .cm-s-github-light .CodeMirror-lines {
   font-family: "Noto Sans Mono CJK JP", "Source Han Code JP",
     "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 16px;
+  font-size: 12px;
   background: /*#fff*/ #f8f9fa;
   line-height: 1.5; }
 

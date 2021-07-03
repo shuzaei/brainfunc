@@ -20,28 +20,12 @@
 <body>
     <nav class="navbar navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                Brainfunc visualizer
-            </a>
+            <a class="navbar-brand" href="#">Brainfunc visualizer</a>
+            <a class="navbar-nav" href="https://www.github.com/shuzaei/brainfunc/blob/main/README.md">About
+                Brainfunc</a>
         </div>
     </nav>
-    <div class="container p-3">
-        <div class="container h4">
-            Specifications
-        </div>
-        <div class="container">
-            <ul>
-                <li><code>if (ptr == 100) ptr = 0;</code></li>
-                <li><code>if (ptr == -1) ptr = 99;</code></li>
-                <li>
-                    It conforms to <a
-                        href="https://www.github.com/shuzaei/brainfunc/blob/main/README.md#language-specifications">language
-                        specifications.</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="container p-3">
+    <div class="container pt-3 px-3">
         <div class="container h4">
             Cells
         </div>
@@ -56,31 +40,59 @@
             </div>
         </div>
     </div>
-    <div class="container p-3">
-        <div class="container h4">
-            Controller
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col p-0">
-                    <div class="container">
-                        <button type="button" class="btn btn-primary" onClick="startStop()">Start / Stop</button>
-                        <button type="button" class="btn btn-primary" onClick="prev()">Prev</button>
-                        <button type="button" class="btn btn-primary" onClick="next()">Next</button>
-                        <button type="button" class="btn btn-danger" onClick="reset()">Reset</button>
+    <div class="container pt-3 px-3">
+        <div class="row">
+            <div class="col p-0">
+                <div class="container h4">
+                    Controller
+                </div>
+                <div class="container m-2">
+                    <div class="row">
+                        <div class="col p-1">
+                            <button type="button" class="btn btn-primary btn-block" style="width: 100%;"
+                                onClick="startStop()">Start /
+                                Stop</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col p-1">
+                            <div class="btn-group" style="width: 100%;">
+                                <button type="button" class="btn btn-primary btn-block" onClick="prev()">Prev</button>
+                                <button type="button" class="btn btn-primary btn-block" onClick="next()">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col p-1">
+                            <button type="button" class="btn btn-danger btn-block" style="width: 100%;"
+                                onClick="reset()">Reset</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col p-1">
+                            <div class="btn-group" style="width: 100%;">
+                                <button type="button" class="btn btn-light btn-block">
+                                    Delay
+                                </button>
+                                <button type="button" class="btn btn-light btn-block">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="delay" min="0.1" max="5.0"
+                                            step="0.1" value="0.8">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">sec</span>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    </div>
-    <div class="container p-3">
-        <div class="row">
             <div class="col p-0">
                 <div class="container h4">
                     Input
                 </div>
-                <div class="container" style="min-width: 100%;">
+                <div class="container">
                     <textarea id="input"></textarea>
                     <script>
                         var inputArea = CodeMirror.fromTextArea(input, {
@@ -90,6 +102,7 @@
                         inputArea.on("change", function (cm, change) {
                             reset();
                         });
+                        inputArea.setSize("100%", "180px");
                     </script>
                 </div>
             </div>
@@ -105,6 +118,7 @@
                             theme: "github-light",
                             readOnly: true
                         });
+                        outputArea.setSize("100%", "180px");
                     </script>
                 </div>
             </div>
