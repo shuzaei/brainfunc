@@ -28,7 +28,7 @@ A programming language like brainf\*ck.
 A visualizer of Brainfunc.
 You can find it [here](https://shuzaei.github.io/brainfunc/visualizer/).
 
-**Attention: development is now in progress.**
+**Attention: it is an alpha version now.**
 
 ## Special specifications
 
