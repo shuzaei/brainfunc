@@ -185,7 +185,11 @@ function showCursor() {
 }
 
 function next() {
-    if (!checkOk || codePos == codeEncoded.length) return;
+    if (!checkOk || codePos == codeEncoded.length) {
+        clearTimeout(timer);
+        isRunning = false;
+        return;
+    }
 
     if (!isStarted) {
         showCursor();
