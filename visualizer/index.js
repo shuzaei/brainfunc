@@ -325,7 +325,7 @@ function checkCode(codeEncoded) {
                 return where(line, col) + "Error: Unbalanced brace }\n";
             }
             if (depth != 0) {
-                return where(line, col) + "Error: Unbalanced parentheses ()\n";
+                return where(line, col) + "Error: Unbalanced parentheses (\n";
             }
             depth = 0;
             inFunc = false;

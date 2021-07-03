@@ -64,7 +64,7 @@ void interpret(char *src, char *filename) {
             }
             if (depth != 0) {
                 where(filename);
-                fprintf(stderr, "Unbalanced parentheses ()\n");
+                fprintf(stderr, "Unbalanced parentheses (\n");
                 exit(1);
             }
             depth = 0;
