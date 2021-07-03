@@ -113,8 +113,9 @@ function get() {
 
     if (inputPos >= inputEncoded.length) {
         numCell.innerHTML = "26";
+    } else {
+        numCell.innerHTML = inputEncoded[inputPos];
     }
-    numCell.innerHTML = inputEncoded[inputPos];
     inputPos++;
 
     charCell.innerHTML = intToChar(parseInt(numCell.innerHTML));
@@ -193,6 +194,8 @@ function next() {
         return;
     }
 
+    var numRow = document.getElementById("num-row");
+
     if ((0x30 <= codeEncoded[codePos] && codeEncoded[codePos] <= 0x39) ||
         (0x41 <= codeEncoded[codePos] && codeEncoded[codePos] <= 0x5A) ||
         (0x61 <= codeEncoded[codePos] && codeEncoded[codePos] <= 0x7A) ||
@@ -206,6 +209,7 @@ function next() {
             setCodePos(returnPos.pop());
         } else {
             setCodePos(codeEncoded.length - 1);
+            removeCursor();
         }
     }
 
@@ -232,11 +236,17 @@ function next() {
 
     else if (codeEncoded[codePos] === 0x28) {
         if (numRow.cells[cellPos].childNodes[0].innerHTML == "0") {
-            var jump = codePos;
-            while(jump < codeEncoded.length && codeEncoded[jump] != 0x29) {
+            var jump = codePos + 1;
+            depth++;
+            while(jump < codeEncoded.length && depth > 0) {
+                if (codeEncoded[jump] === 0x28) {
+                    depth++;
+                } else if (codeEncoded[jump] === 0x29) {
+                    depth--;
+                }
                 jump++;
             }
-            setCodePos(jump);
+            setCodePos(jump - 1);
         }
     }
 
@@ -250,23 +260,23 @@ function next() {
 
     setCodePos(codePos + 1);
 
-    if (codePos < codeEncoded.length) {
-        var jump = codePos;
-        while (jump < codeEncoded.length && (codeEncoded[jump] === 0x20 || codeEncoded[jump] === 0x0D ||
-            codeEncoded[jump] === 0x0A || codeEncoded[jump] === 0x09 || codeEncoded[jump] === 0x0C || codeEncoded[jump] == 0x23)) {
-            if (codeEncoded[jump] == 0x23) {
-                while (jump < codeEncoded.length && codeEncoded[jump] != 0x0A) {
-                    jump++;
-                }
-            }
-            jump++;
-        }
-        setCodePos(jump);
+    if (codePos == codeEncoded.length) return;
 
-        if (codePos < codeEncoded.length) {
-            showCursor();
+    var jump = codePos;
+    while (jump < codeEncoded.length && (codeEncoded[jump] === 0x20 || codeEncoded[jump] === 0x0D ||
+        codeEncoded[jump] === 0x0A || codeEncoded[jump] === 0x09 || codeEncoded[jump] === 0x0C || codeEncoded[jump] == 0x23)) {
+        if (codeEncoded[jump] == 0x23) {
+            while (jump < codeEncoded.length && codeEncoded[jump] != 0x0A) {
+                jump++;
+            }
         }
+        jump++;
     }
+    setCodePos(jump);
+
+    if (codePos == codeEncoded.length) return;
+
+    showCursor();
 }
 
 function where(line, col) {
@@ -411,6 +421,8 @@ function reset() {
 
     cmPos = [];
 
+    depth = [0];
+
     removeCursor();
     
     for (let i = 0; i < 100; i++) {
@@ -444,6 +456,7 @@ var cursorElement;
 var marker;
 var isStarted = false;
 var cmPos = [];
+var depth = [0];
 
 window.onload = function() {
     initTable();
