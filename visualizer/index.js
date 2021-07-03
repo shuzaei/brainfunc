@@ -115,23 +115,198 @@ function put() {
 
 function startStop() {
     if (!checkOk) return;
+    if (isRunning) {
+        clearTimeout(timer);
+        isRunning = false;
+    } else {
+        timer = setInterval(next, delay.value * 1000);
+        isRunning = true;
+    }
+}
+
+function resetInterval() {
+    clearTimeout(timer);
+    timer = setInterval(next, delay.value * 1000);
+    isRunning = true;
 }
 
 function prev() {
-    inc();
-    if (!checkOk) return;
+    if (!checkOk || isRunning) return;
+}
+
+function setCodePos(num) {
+    codePos = num;
 }
 
 function next() {
-    go();
-    if (!checkOk) return;
+    if (!checkOk || isRunning || codePos == codeEncoded.length) return;
+    console.log(codePos, codeEncoded[codePos]);
+
+    var jump = codePos;
+    while (jump < codeEncoded.length && (codeEncoded[jump] === 0x20 || codeEncoded[jump] === 0x0D ||
+        codeEncoded[jump] === 0x0A || codeEncoded[jump] === 0x09 || codeEncoded[jump] === 0x0C)) {
+        jump++;
+    }
+    setCodePos(jump);
+
+    if ((0x30 <= codeEncoded[codePos] && codeEncoded[codePos] <= 0x39) ||
+        (0x41 <= codeEncoded[codePos] && codeEncoded[codePos] <= 0x5A) ||
+        (0x61 <= codeEncoded[codePos] && codeEncoded[codePos] <= 0x7A) ||
+        codeEncoded[codePos] === 0x5F) {
+        returnPos.push(codePos);
+        setCodePos(functionPos[codeEncoded[codePos]]);
+    }
+
+    else if (codeEncoded[codePos] === 0x7D) {
+        if (returnPos.length) {
+            setCodePos(returnPos.pop());
+        } else {
+            setCodePos(codeEncoded.length - 1);
+        }
+    }
+
+    else if (codeEncoded[codePos] === 0x3E) {
+        go();
+    } 
+    else if (codeEncoded[codePos] === 0x3C) {
+        back();
+    }
+
+    else if (codeEncoded[codePos] === 0x2B) {
+        inc();
+    }
+    else if (codeEncoded[codePos] === 0x2D) {
+        dec();
+    }
+
+    else if (codeEncoded[codePos] === 0x2C) {
+        get();
+    }
+    else if (codeEncoded[codePos] === 0x2E) {
+        put();
+    }
+
+    else if (codeEncoded[codePos] === 0x28) {
+        if (numRow.cells[cellPos].childNodes[0].innerHTML == "0") {
+            var jump = codePos;
+            while(jump < codeEncoded.length && codeEncoded[jump] != 0x29) {
+                jump++;
+            }
+            setCodePos(jump);
+        }
+    }
+
+    else if (codeEncoded[codePos] == 0x23) {
+        var jump = codePos;
+        while (jump < codeEncoded.length && codeEncoded[jump] != 0x0A) {
+            jump++;
+        }
+        setCodePos(jump);
+    }
+
+    setCodePos(codePos + 1);
 }
 
-function checkCode(code) {
+function where(line, col) {
+    return line.toString() + ": " + col.toString() + ": ";
+}
+
+function checkCode(codeEncoded) {
+    var functionName;
+    var inFunc = false, defined = false, depth = 0, line = 1, col = 1, flags = {};
+
+    for (i = 0; i < codeEncoded.length; i++) {
+        if ((0x30 <= codeEncoded[i] && codeEncoded[i] <= 0x39) ||
+            (0x41 <= codeEncoded[i] && codeEncoded[i] <= 0x5A) ||
+            (0x61 <= codeEncoded[i] && codeEncoded[i] <= 0x7A) ||
+            codeEncoded[i] === 0x5F) {
+            if (!inFunc) {
+                if (defined) {
+                    return where(line, col) + "Error: Invalid function name\n";
+                }
+                if (flags[codeEncoded[i]]) {
+                    return where(line, col) + "Error: Invalid redeclaration of function \'" + codeEncoded[i] + "\'\n";
+                }
+                flags[codeEncoded[i]] = true;
+                functionName = codeEncoded[i];
+                defined = true;
+            }
+        }
+
+        else if (codeEncoded[i] === 0x7B) {
+            if (inFunc) {
+                return where(line, col) + "Error: Invalid function declaration inside of a function\n";
+            }
+            if (!defined) {
+                return where(line, col) + "Error: Missing function name\n";
+            }
+            inFunc = true;
+            functionPos[functionName] = i;
+        } else if (codeEncoded[i] === 0x7D) {
+            if (!inFunc) {
+                return where(line, col) + "Error: Unbalanced brace }\n";
+            }
+            if (depth != 0) {
+                return where(line, col) + "Error: Unbalanced parentheses ()\n";
+            }
+            depth = 0;
+            inFunc = false;
+            defined = false;
+        }
+
+        else if (codeEncoded[i] === 0x3E || codeEncoded[i] === 0x3C ||
+            codeEncoded[i] === 0x2B || codeEncoded[i] === 0x2D ||
+            codeEncoded[i] === 0x2C || codeEncoded[i] === 0x2E ||
+            codeEncoded[i] === 0x28 || codeEncoded[i] === 0x29) {
+            if (inFunc) {
+                if (codeEncoded[i] === 0x28) {
+                    ++depth;
+                } else if (codeEncoded[i] === 0x29) {
+                    if (--depth < 0) {
+                        return where(line, col) + "Error: Unbalanced parenthesis )\n";
+                    }
+                }
+            } else {
+                return where(line, col) + "Error: Invalid expression outside of a function\n";
+            }
+        }
+
+        else if (codeEncoded[i] == 0x23) {
+            while (i < codeEncoded.length && codeEncoded[i] != 0x0A) {
+                col++;
+                i++;
+            }
+        }
+
+        else if (!(codeEncoded[i] === 0x20 || codeEncoded[i] === 0x0D ||
+            codeEncoded[i] === 0x0A || codeEncoded[i] === 0x09 || codeEncoded[i] === 0x0C)) {
+            return where(line, col) + "Error: Invalid charactor 0x" + codeEncoded[i].toString(16) + "\n";
+        }
+
+        if (codeEncoded[i] == 0x0A) {
+            col = 0;
+            line++;
+        } else {
+            col++;
+        }
+    }
+
+    if (!flags[0x5F]) {
+        return where(line, col) + "Error: Missing function _\n";
+    }
+
+    if (inFunc || defined) {
+        return where(line, col) + "Error: Extra expression\n";
+    }
+
     return "Ok";
 }
 
 function reset() {
+    if (timer) {
+        clearTimeout(timer);
+    }
+    
     var charRow = document.getElementById("char-row");
     var numRow = document.getElementById("num-row");
 
@@ -155,7 +330,7 @@ function reset() {
 
     returnPos = [];
 
-    functionPos = Array(128);
+    functionPos = {};
     
     for (let i = 0; i < 100; i++) {
         charRow.cells[i].childNodes[0].innerHTML = intToChar("0");
@@ -165,6 +340,7 @@ function reset() {
     var result = checkCode(codeEncoded);
     if (result === "Ok") {
         checkOk = true;
+        codePos = functionPos[0x5F];
     } else {
         outputArea.getDoc().setValue(result);
     }
@@ -178,8 +354,10 @@ var cellPos = 0;
 var codeEncoded = [];
 var inputEncoded = [];
 var returnPos = [];
-var functionPos = Array(128);
+var functionPos = {};
+var timer;
 
 window.onload = function() {
     initTable();
+    reset();
 }
