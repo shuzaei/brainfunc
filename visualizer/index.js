@@ -132,9 +132,15 @@ function startStop() {
     if (isRunning) {
         clearTimeout(timer);
         isRunning = false;
+        var button = document.getElementById("start-stop");
+        button.setAttribute("class", "btn btn-primary btn-block");
+        button.innerHTML = "Start";
     } else {
         timer = setInterval(next, delay.value * 1000);
         isRunning = true;
+        var button = document.getElementById("start-stop");
+        button.setAttribute("class", "btn btn-success btn-block");
+        button.innerHTML = "Stop";
     }
 }
 
@@ -142,7 +148,6 @@ function resetInterval() {
     if (!checkOk || !isRunning) return;
     clearTimeout(timer);
     timer = setInterval(next, delay.value * 1000);
-    isRunning = true;
 }
 
 function pushPrev() {
@@ -402,6 +407,9 @@ function generateCMPos() {
 function reset() {
     if (timer) {
         clearTimeout(timer);
+        var button = document.getElementById("start-stop");
+        button.setAttribute("class", "btn btn-primary btn-block");
+        button.innerHTML = "Start";
     }
     
     var charRow = document.getElementById("char-row");
