@@ -98,11 +98,10 @@
                         inputArea.on("change", function (cm, change) {
                             reset();
                         });
+                        inputArea.setSize(null, "65px");
                     </script>
                 </div>
-            </div>
-            <div class="col p-0">
-                <div class="container h4">
+                <div class="container h4 pt-3">
                     Output
                 </div>
                 <div class="container py-1">
@@ -113,6 +112,7 @@
                             theme: "github-light",
                             readOnly: true
                         });
+                        outputArea.setSize(null, "65px");
                     </script>
                 </div>
             </div>
