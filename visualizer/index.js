@@ -192,6 +192,9 @@ function showCursor() {
 function next() {
     if (!checkOk || codePos == codeEncoded.length) {
         clearTimeout(timer);
+        var button = document.getElementById("start-stop");
+        button.setAttribute("class", "btn btn-primary btn-block");
+        button.innerHTML = "Start";
         isRunning = false;
         return;
     }
