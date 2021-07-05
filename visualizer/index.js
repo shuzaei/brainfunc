@@ -112,7 +112,7 @@ function get() {
     var numCell = document.getElementById("num-row").cells[cellPos].childNodes[0];
 
     if (inputPos >= inputEncoded.length) {
-        numCell.innerHTML = "26";
+        numCell.innerHTML = "-1";
     } else {
         numCell.innerHTML = inputEncoded[inputPos];
     }
