@@ -8,7 +8,7 @@ A programming language like brainf\*ck
 2021/07/06
 
 <div style="text-align: right; font-size: 35px;">
-<img src="./shuzaei.png" width=150></img> Shuz*
+<img src="image/shuzaei.png" width=150></img> Shuz*
 (<a href="https://www.twitter.com/shuzaei">@shuzaei</a>)
 </div>
 
@@ -89,7 +89,7 @@ See also: [README.md](https://github.com/shuzaei/brainfunc/blob/main/README.md)
 Thank you for watching,
 
 <div style="text-align: right; font-size: 35px;">
-<img src="./shuzaei.png" width=150></img> Shuz*
+<img src="image/shuzaei.png" width=150></img> Shuz*
 </div>
 
 ---
