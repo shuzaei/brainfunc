@@ -1,5 +1,6 @@
 ---
 marp: true
+class: invert
 ---
 
 # Brainfunc
