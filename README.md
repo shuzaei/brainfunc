@@ -12,12 +12,12 @@ A programming language like brainf\*ck.
 
 | Command          | C equivalent                       |
 | :--------------- | :--------------------------------- |
-| `[0-9A-Za-z_]{}` | `void f_[1-9A-Za-z_](void){}`      |
+| `[_0-9A-Za-z]{}` | `void f_[_0-9A-Za-z](void){}`      |
 | `>` `<`          | `ptr++;` `ptr--;`                  |
 | `+` `-`          | `(*ptr)++;` `(*ptr)--;`            |
 | `,` `.`          | `*ptr=getchar();` `putchar(*ptr);` |
 | `()`             | `if(*ptr){}`                       |
-| `[0-9A-Za-z_]`   | `f_[1-9A-Za-z_]();`                |
+| `[_0-9A-Za-z]`   | `f_[_0-9A-Za-z]();`                |
 | `#`              | `//`                               |
 
 - Notice: you receive `-1` as `EOF` in the input.
