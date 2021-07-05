@@ -55,14 +55,14 @@ Try it on [Brainfunc visualizer](https://shuzaei.github.io/brainfunc/visualizer/
 
 ## Commands
 
-| Command | Description                                                           |
-| :------ | :-------------------------------------------------------------------- |
-| `x{y}`  | Declare a function that executes `y` with the name `x`.               |
-| `>` `<` | Increment and decrement the index of the current cell.                |
-| `+` `-` | Increment and decrement the value of the current cell.                |
-| `,` `.` | Input to and output from the value of the current cell.               |
-| `(x)`   | Execute `x` if the value of the current cell is not equal to 0.       |
-| `x`     | Call a function with the name `x`.                                    |
+| Command | Description                                                     |
+| :------ | :-------------------------------------------------------------- |
+| `x{y}`  | Declare a function that executes `y` with the name `x`.         |
+| `>` `<` | Increment and decrement the index of the current cell.          |
+| `+` `-` | Increment and decrement the value of the current cell.          |
+| `,` `.` | Input to and output from the value of the current cell.         |
+| `(x)`   | Execute `x` if the value of the current cell is not equal to 0. |
+| `x`     | Call a function with the name `x`.                              |
 
 See also: [README.md](https://github.com/shuzaei/brainfunc/blob/main/README.md)
 
