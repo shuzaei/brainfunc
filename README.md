@@ -4,7 +4,7 @@
 # Brainfunc
 A programming language like brainf\*ck.
 
-[Introduction slide](https://shuzaei.github.io/brainfunc/docs/brainfunc.html)
+[An introduction slide](https://shuzaei.github.io/brainfunc/docs/brainfunc.html)
 
 ## Language specifications
 
