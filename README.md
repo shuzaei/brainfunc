@@ -4,6 +4,8 @@
 # Brainfunc
 A programming language like brainf\*ck.
 
+[An introduction slide](https://shuzaei.github.io/brainfunc/docs/brainfunc.html)
+
 ## Language specifications
 
 - Recommended extension: `.bc`
