@@ -16,7 +16,7 @@ A programming language like brainf\*ck
 
 ## Language background
 
-- :thinking: C++ template is Turing complete.
+- :thinking: C++ templates are Turing complete.
 - :thinking: Brainf\*ck is also Turing complete.
 - :thinking: How about introducing functions into brainf\*ck?
 - :smile: While-statements are substitutable with recursive functions and if-statements!
