@@ -1,0 +1,15 @@
+{
+    "name": "brainfunc-slide",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "shuzaei",
+    "license": "GNU GPL v3.0",
+    "private": true,
+    "scripts": {
+        "dev": "marp --html --server .",
+        "build": "marp --html --pdf --allow-local-files --title 'Brainfunc' brainfunc.md -o ./brainfunc.pdf"
+    },
+    "devDependencies": {
+        "@marp-team/marp-cli": "^1.1.1"
+    }
+}
