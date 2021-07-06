@@ -71,7 +71,7 @@ See also: [README.md](https://github.com/shuzaei/brainfunc/blob/main/README.md)
 
 ## How can we enjoy Brainfunc?
 
-- Try to code Brainfunc from [Brainfunc visualizer](https://shuzaei.github.io/brainfunc/visualizer/).
+- Try coding on [Brainfunc visualizer](https://shuzaei.github.io/brainfunc/visualizer/).
 - Install a Brainfunc compiler with a command below. <br> `brew install shuzaei/brainfunc/brainfunc`
   - Usage: `bcc <filename> [output filename]`
 - Install a Visual Studio Code extension from [here](https://marketplace.visualstudio.com/items?itemName=shuzaei.vscode-brainfunc).
