@@ -22,16 +22,16 @@ A programming language like brainf\*ck.
 | `[_0-9A-Za-z]`   | `f_[_0-9A-Za-z]();`                |
 | `#`              | `//`                               |
 
-- Notice: you receive `-1` as `EOF` in the input.
-- Notice: out of bounds array accesses have undefined behavior.
+- Note: you receive `-1` as `EOF` in the input.
+- Note: out of bounds array accesses have undefined behavior.
 
 # Brainfunc visualizer
 
 A visualizer of Brainfunc.
 You can find it [here](https://shuzaei.github.io/brainfunc/visualizer/).
 
-- **Attention: it is a beta version now.**
-- Attention: ad-blocks may disable indicating the cursor.
+- **Note: it is a beta version now.**
+- Note: ad-blocks may disable indicating the cursor.
 
 ## Special specifications
 
