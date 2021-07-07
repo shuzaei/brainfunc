@@ -7,7 +7,7 @@ r{>>>> >>>> >>>> >>>>}
 l{<<<< <<<< <<<< <<<<}
 
 # Clear cell
-c{(-c)}
+c{(+c)}
 
 # Skip and count until 1
 t{>-(+<m>+t)}
