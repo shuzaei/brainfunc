@@ -39,6 +39,9 @@ class Interpreter {
                         out << "f_" << c << "();";
                     }
                 } else {
+                    if (!in_func && std::string("><+-,.()").find(c) != std::string::npos) {
+                        error(true, where(), "Invalid expression outside of a function");
+                    }
                     switch (c) {
                         case '{':
                             error(in_func, where(),
