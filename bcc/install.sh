@@ -8,4 +8,4 @@ fi
 
 chmod +x "$dir/bcc.sh"
 sudo cp "$dir/bcc.sh" /usr/local/bin/bcc
-sudo cc -o /usr/local/bin/bc2c "$dir/bc2c.c"
+sudo cpp -o /usr/local/bin/bc2c "$dir/bc2c.cpp"
